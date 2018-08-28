@@ -1,0 +1,34 @@
+{
+  "manifest_version": 2,
+  "name": "Logger",
+  "version": "1.0",
+
+  "description": "Captures the interaction between the user and the browser.",
+
+  "icons": {
+    "48": "icons/logger-48.png"
+  },
+
+  "background": {
+    "scripts": ["FileSaver.min.js", "background.js"]
+},
+  
+  "permissions": [
+    "tabs"
+],
+  
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["jquery-3.2.1.min.js", "loggerPlugin.js"]
+    }
+  ],
+  
+  "web_accessible_resources": ["report/report.html", "report/d3.min.js", "report.css"],
+  
+  "browser_action": {
+    "default_icon": "icons/logger-32.png",
+    "default_title": "Logger",
+    "default_popup": "popup/loggerPopup.html"
+  }
+}

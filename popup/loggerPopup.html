@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="loggerPopup.css"/>
+	<link rel="stylesheet" href="../bootstrap.min.css">
+  </head>
+
+<body>
+  <div id="popup-content-main">
+    <div class="margin"></div>
+    <div id="record" class="button record"> <img id="imageRecord" class="image" src="../icons/play_32.png" alt="playImg"></img> Record</div>
+	<div id="pause" class="button pause"  style="display: none;"> <img id="imagePause" class="image" src="../icons/pause_32.png" alt="pauseImg"></img> Pause</div>
+	<div id="report" class="button report disabled"> <img id="imageReport" class="image" src="../icons/report_32.png" alt="reportImg"></img> Report <i id="rightReport" class="arrow right"></i> </div>
+	<div id="download" class="button download disabled"> <img id="imageDownload" class="image" src="../icons/download_32.png" alt="downloadImg"></img> Download</div>
+	<div id="events" class="button events"> <img id="imageEvents" class="image" src="../icons/manage_32.png" alt="eventsImg"></img> Events <i id="rightEvents" class="arrow right"></i> </div>
+	<div class="margin"></div>
+  </div>
+  
+  <div id="popup-content-report" style="display: none;">
+    <div class="margin"></div>
+	<div class="title">Report</div>
+	<div id="backReport" class="button backReport"> <i id="leftReport" class="arrow left"></i> </div>
+	<div id="graph" class="button graph">Usage Graph</div>
+    <div id="heatmap" class="button heatmap">Heatmap</div>
+	<div id="mousePlot" class="button mousePlot">Mouse Plot</div>
+	<div id="downloadAll" class="button downloadAll">Download All</div>
+	<div class="margin"></div>
+  </div>
+  
+  <div id="popup-content-events" style="display: none;">
+    <div class="margin"></div>
+	<div class="title">Events</div>
+	<div id="backEvents" class="button backEvents"> <i id="leftEvents" class="arrow left"></i> </div>
+    <div id="keyboard" class="button keyboard">Keyboard <i id="rightKeyboard" class="arrow right"></i> </div>
+	<div id="mouse" class="button mouse">Mouse <i id="rightMouse" class="arrow right"></i> </div>
+	<div id="window" class="button window">Window <i id="rightWindow" class="arrow right"></i> </div>
+	<div id="others" class="button others">Others <i id="rightOthers" class="arrow right"></i> </div>
+	<div class="margin"></div>
+  </div>
+  
+  <div id="popup-content-events-keyboard" style="display: none;">    
+	<div class="title">Keyboard</div>	
+	<div id="backKeyboard" class="button backKeyboard"> <i id="leftKeyboard" class="arrow left"></i> </div>	
+    <div><input type="checkbox" id="keypress" name="keyboardEvent" value="keypress" checked><label for="keypress">keypress</label></div>
+	<div><input type="checkbox" id="keydown" name="keyboardEvent" value="keydown" checked><label for="keydown">keydown</label></div>
+    <div><input type="checkbox" id="keyup" name="keyboardEvent" value="keydown" checked><label for="keyup">keyup</label></div>	
+  </div>
+  
+  <div id="popup-content-events-mouse" style="display: none;">  
+    <div class="title">Mouse</div>    
+	<div id="backMouse" class="button backMouse"> <i id="leftMouse" class="arrow left"></i> </div>	
+    <div><input type="checkbox" id="click" name="mouseEvent" value="click" checked><label for="click">click</label></div>
+	<div><input type="checkbox" id="dblclick" name="mouseEvent" value="dblclick" checked><label for="dblclick">dblclick</label></div>
+    <div><input type="checkbox" id="mousedown" name="mouseEvent" value="mousedown" checked><label for="mousedown">mousedown</label></div>
+	<div><input type="checkbox" id="mousemove" name="mouseEvent" value="mousemove" checked><label for="mousemove">mousemove</label></div>
+	<div><input type="checkbox" id="mouseup" name="mouseEvent" value="mouseup" checked><label for="mouseup">mouseup</label></div>
+	<div><input type="checkbox" id="mouseover" name="mouseEvent" value="mouseover" checked><label for="mouseover">mouseover</label></div>
+	<div><input type="checkbox" id="mouseout" name="mouseEvent" value="mouseout" checked><label for="mouseout">mouseout</label></div>
+	<div><input type="checkbox" id="mouseenter" name="mouseEvent" value="mouseenter" checked><label for="mouseenter">mouseenter</label></div>
+	<div><input type="checkbox" id="mouseleave" name="mouseEvent" value="mouseleave" checked><label for="mouseleave">mouseleave</label></div>	
+  </div>
+  
+  <div id="popup-content-events-window" style="display: none;">  
+    <div class="title">Window</div>    
+	<div id="backWindow" class="button backWindow"> <i id="leftWindow" class="arrow left"></i> </div>	
+    <div><input type="checkbox" id="focus" name="windowEvent" value="focus" checked><label for="focus">focus</label></div>
+	<div><input type="checkbox" id="focusin" name="windowEvent" value="focusin" checked><label for="focusin">focusin</label></div>
+    <div><input type="checkbox" id="focusout" name="windowEvent" value="focusout" checked><label for="focusout">focusout</label></div>
+	<div><input type="checkbox" id="load" name="windowEvent" value="load" checked><label for="load">load</label></div>
+	<div><input type="checkbox" id="resize" name="windowEvent" value="resize" checked><label for="resize">resize</label></div>
+	<div><input type="checkbox" id="scroll" name="windowEvent" value="scroll" checked><label for="scroll">scroll</label></div>
+	<div><input type="checkbox" id="unload" name="windowEvent" value="unload" checked><label for="unload">unload</label></div>
+	<div><input type="checkbox" id="beforeunload" name="windowEvent" value="beforeunload" checked><label for="beforeunload">beforeunload</label></div>
+	<div><input type="checkbox" id="blur" name="windowEvent" value="blur" checked><label for="blur">blur</label></div>	
+  </div>
+  
+  <div id="popup-content-events-others" style="display: none;">  
+    <div class="title">Others</div>    
+	<div id="backOthers" class="button backOthers"> <i id="leftOthers" class="arrow left"></i> </div>	
+    <div><input type="checkbox" id="change" name="othersEvent" value="change" checked><label for="change">change</label></div>
+	<div><input type="checkbox" id="select" name="othersEvent" value="select" checked><label for="select">select</label></div>
+    <div><input type="checkbox" id="submit" name="othersEvent" value="submit" checked><label for="submit">submit</label></div>
+	<div><input type="checkbox" id="error" name="othersEvent" value="error" checked><label for="error">error</label></div>
+	<div><input type="checkbox" id="touchstart" name="othersEvent" value="touchstart" checked><label for="touchstart">touchstart</label></div>
+	<div><input type="checkbox" id="touchmove" name="othersEvent" value="touchmove" checked><label for="touchmove">touchmove</label></div>
+	<div><input type="checkbox" id="touchend" name="othersEvent" value="touchend" checked><label for="touchend">touchend</label></div>
+	<div><input type="checkbox" id="touchcancel" name="othersEvent" value="touchcancel" checked><label for="touchcancel">touchcancel</label></div>
+	<div><input type="checkbox" id="gesturechange" name="othersEvent" value="gesturechange" checked><label for="gesturechange">gesturechange</label></div>
+    <div><input type="checkbox" id="gesturestart" name="othersEvent" value="gesturestart" checked><label for="gesturestart">gesturestart</label></div>	
+	<div><input type="checkbox" id="gestureend" name="othersEvent" value="gestureend" checked><label for="gestureend">gestureend</label></div>
+	<div><input type="checkbox" id="orientationchange" name="othersEvent" value="orientationchange" checked><label for="orientationchange">orientationchange</label></div>
+	<div><input type="checkbox" id="DOMNodeInserted" name="othersEvent" value="DOMNodeInserted" checked><label for="DOMNodeInserted">DOMNodeInserted</label></div>
+	<div><input type="checkbox" id="DOMNodeRemoved" name="othersEvent" value="DOMNodeRemoved" checked><label for="DOMNodeRemoved">DOMNodeRemoved</label></div>
+	<div><input type="checkbox" id="deviceorientation" name="othersEvent" value="deviceorientation" checked><label for="deviceorientation">deviceorientation</label></div>
+	<div><input type="checkbox" id="devicemotion" name="othersEvent" value="devicemotion" checked><label for="devicemotion">devicemotion</label>   </div>
+	<div><input type="checkbox" id="geolocationchange" name="othersEvent" value="geolocationchange" checked><label for="geolocationchange">geolocationchange</label></div>
+	<div><input type="checkbox" id="pageview" name="othersEvent" value="pageview" checked><label for="pageview">pageview</label></div>
+	<div><input type="checkbox" id="hashchange" name="othersEvent" value="hashchange" checked><label for="hashchange">hashchange</label></div>	
+  </div>
+  
+  <script src="../jquery-3.2.1.min.js"></script>
+  <script src="../FileSaver.min.js"></script>
+  <script src="../loggerPlugin.js"></script>
+  <script src="loggerPopup.js"></script>
+</body>
+</html>

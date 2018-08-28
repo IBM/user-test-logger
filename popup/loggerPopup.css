@@ -1,0 +1,116 @@
+html, body {
+  width: 200px;
+  height: 90%;
+  border-color: rgba(12, 12, 13, 0.2);
+}
+
+#popup-content-events-keyboard, #popup-content-events-mouse, #popup-content-events-window, #popup-content-events-others {
+	margin: 5px;
+}
+
+.margin{
+	height: 5px;
+}
+
+.title {
+  font-size: 0.85em;
+  text-align: center;
+  background-color: #ffffff;
+  font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;
+  display: block;
+  color: black;	
+  border-bottom: thin solid gray;
+  padding-bottom: 0.3em;
+}
+
+.button {
+  padding: 8px;
+  text-align: left;
+  font-size: 0.7em;
+  cursor: pointer;
+  background-color: #ffffff;
+  font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;
+  display: block;
+  color: black;
+  position: relative;
+  border-radius: 2px;
+}
+
+.disabled {
+	opacity: 0.2;
+	cursor: not-allowed
+}
+
+label {
+  padding: 5px;
+  font-size: 0.7em;
+  cursor: pointer;
+  background-color: #ffffff;
+  font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;
+  position: relative;
+  left: 0;
+  top: -2px;
+  color: black;
+  border-radius: 2px;
+}
+
+input[type=checkbox] {
+	-moz-transform: scale(0.8);
+	cursor: pointer;
+}
+
+.button:hover, label:hover {
+  background-color: rgba(12, 12, 13, 0.05);
+}
+
+.button:active, label:active {
+  background-color: rgba(12, 12, 13, 0.1);
+}
+
+.disabled:hover, .disabled:active {
+	background-color:  #ffffff;
+}
+
+.backEvents, .backReport{
+  width: 13px;
+  height : 9px;
+}
+.backKeyboard, .backMouse, .backWindow, .backOthers {
+  width: 7px;
+  height : 7px;
+}
+
+i {
+  border: solid gray;
+  border-width: 0 2px 2px 0;
+  border-radius: 1px;
+  display: inline-block;
+  padding: 2.7px;
+  float: right;
+}
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+	position:relative;
+	top: 4px;
+}
+
+#rightEvents, #rightReport {
+	top: 9px;
+}
+
+.left {
+	float: left;	
+	transform: rotate(-225deg);
+    -webkit-transform: rotate(-225deg);
+	
+}
+
+.image{
+	width: 16px;
+	height: 16px;
+	position: relative;
+	left: -5px;
+	top: 2px;
+}
