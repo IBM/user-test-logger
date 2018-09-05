@@ -21,4 +21,9 @@ Once you seelect the events of interes, you can click record. After that, all ev
 
 ## Analyzing
 
+### Usage Graph
+
+### Gaze Plot
+
+### Heatmap
 
