@@ -1,5 +1,5 @@
 function clicksHandler(event){
-	//FUNCTIONS
+	//FUNCTIONS	
 	function save(loggerPack){
 		
 		var blob = new Blob([JSON.stringify(loggerPack, null, '\t')], {type: "text/json;charset=utf-8"});
@@ -60,6 +60,7 @@ function clicksHandler(event){
 				
 				contextShift("record", "pause");
 				background.then(startRecording, onError);
+				window.close();
 			}
 			break;
 		case 'pause':
@@ -96,6 +97,7 @@ function clicksHandler(event){
 			downloadFlag = 0;
 			eventFlag = 0;
 			background.then(callReportGraph, onError);
+			window.close();
 			break;
 		case 'heatmap':
 			console.log(popupButton);
@@ -104,6 +106,7 @@ function clicksHandler(event){
 			downloadFlag = 0;
 			eventFlag = 0;
 			background.then(callReportHeatmap, onError);
+			window.close();
 			break;
 		case 'mousePlot':
 			console.log(popupButton);
@@ -112,6 +115,7 @@ function clicksHandler(event){
 			downloadFlag = 0;
 			eventFlag = 0;
 			background.then(callReportMp, onError);
+			window.close();
 			break;
 		case 'downloadAll':
 			console.log(popupButton);
