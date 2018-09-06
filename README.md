@@ -10,14 +10,14 @@ The easiest way to tryout the tool is to:
 2. Unzip the downloaded file and place it at your preferred location;
 3. Write about:debugging at the address bar;
 4. Click on "Load Temporary add-on";
-5. Locate the manifest.js file and selected it;
+5. Locate the manifest.json file and selected it;
 5. Confirm.
 
 ## Capturing
 
-Once the plugin is loaded, you will be abble to see the the "L" icon. After clicking at the "L" icon, you will be able to select the events of interest grouped by type of event, e.g., mouse, keyboard, etc.
+Once the plugin is loaded, you will be able to see the "L" icon. After clicking at the "L" icon, you will be able to select the events of interest grouped by type of event, e.g., mouse, keyboard, etc.
 
-Once you seelect the events of interes, you can click record. After that, all events triggered of the type you selected will be logged.
+Once you select the events of interest, you can click record. After that, all events triggered of the type you selected will be logged.
 
 ## Analyzing
 
