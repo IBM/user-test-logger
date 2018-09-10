@@ -5,7 +5,7 @@ function clicksHandler(event){
 		var blob = new Blob([JSON.stringify(loggerPack, null, '\t')], {type: "text/json;charset=utf-8"});
 		
 		var date = new Date(); 
-        var fileName = "" + date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate() + "T" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + "-log.json";
+        var fileName = "" + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "T" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + "-log.json";
 			
 		saveAs(blob, fileName);
 	}
