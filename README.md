@@ -4,8 +4,6 @@ Tooling user studies tasks is fundamental to reduce the burden of evaluators, pr
 
 ## Setup
 
-[![User Test Logger - Setup](http://img.youtube.com/vi/0ihIVZ25s0E/0.jpg)](https://youtu.be/0ihIVZ25s0E "User Test Logger - Setup")
-
 The easiest way to tryout the tool is to:
 
 1. Download the zip file located at https://github.com/IBM/user-test-logger/archive/master.zip;
@@ -14,6 +12,10 @@ The easiest way to tryout the tool is to:
 4. Click on "Load Temporary add-on";
 5. Locate the manifest.json file and selected it;
 5. Confirm.
+
+Checkout this video showing the setup procedure:
+
+[![User Test Logger - Setup](http://img.youtube.com/vi/0ihIVZ25s0E/0.jpg)](https://youtu.be/0ihIVZ25s0E "User Test Logger - Setup")
 
 ## Capturing
 
