@@ -35,7 +35,11 @@ Checkout this video showing an overview of reporting capabilities:
 
 ### Usage Graph
 
-### Gaze Plot
+The usage graph can also be seen as the combination of walks (non-empty alternating sequence of nodes and edges) representing what, where, and when users performed actions. In the usage graph a node is identified by its label, which is the concatenation of the event name and an identifier of the UI element where the event occurred. Moreover, each node counts on information regarding the total of sessions they occurred, mean distance from the root node, mean timestamp, among others.
+
+For more details, please refer to the paper (https://www.researchgate.net/publication/270914330_WELFIT_A_remote_evaluation_tool_for_identifying_web_usage_Patterns_through_client-side_logging "WELFIT: A remote evaluation tool for identifying web usage Patterns through client-side logging")
 
 ### Heatmap
 
+
+### Gaze Plot
