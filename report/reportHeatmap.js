@@ -309,21 +309,9 @@ function heatMap(loggerPack){
 	}
 				  
 	points.sort(function(a, b){return a.fixation-b.fixation});
-	
 	var min = points[0].fixation;
-	var max = points[0].fixation;
+	var max = points[points.length - 1].fixation;
 	
-	for(let obj of points){
-		
-		if(max < obj.fixation){
-			max = obj.fixation;
-		}
-		if(min > obj.fixation){
-			min = obj.fixation;
-		}
-		
-	}
-				  
 	var scale = d3.scaleLinear().domain([0, max*0.5, max]).range(["green", "yellow", "red"]);			  
 					   
 	var circles = g.selectAll('circle2')
