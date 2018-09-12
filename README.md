@@ -29,7 +29,7 @@ Checkout this video showing the logging procedure:
 
 ## Analysis
 
-Checkout this video showing the an overview of the reporting capabilities of the tool:
+Checkout this video showing an overview of reporting capabilities:
 
 [![User Test Logger - Analysis](http://img.youtube.com/vi/o6DmDAxE2h4/0.jpg)](https://youtu.be/o6DmDAxE2h4 "User Test Logger - Analysis")
 
