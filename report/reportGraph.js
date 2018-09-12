@@ -333,7 +333,7 @@ function displayGraph(graph){
 				    .attr('markerHeight', 9)
 				    .append('path')
 				    .attr('d', 'M2,2 L2,8 L8,5 L2,2')
-				    .attr('fill', '#999');
+				    .attr('fill', 'black');
 				    //.attr('xoverflow', 'visible');	
 
 	links.attr('marker-end', function(d){
