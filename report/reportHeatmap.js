@@ -194,7 +194,7 @@ function heatMap(loggerPack){
 		
 	}
 	var off = 100;
-	var idtFixations = idt(mouseTrack, 30, 200);
+	var idtFixations = idt(mouseTrack, 10, 50);
 	for(let a of idtFixations){
 		a.y -= off;
 	}
