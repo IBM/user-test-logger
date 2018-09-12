@@ -201,13 +201,15 @@ function displayGraph(graph){
 	var h = hclient*4;
 	var minw = Math.floor(w/2) - Math.floor(wclient/2);
 	var minh = Math.floor(h/2) - Math.floor(hclient/2);
+	var maxw = Math.floor(w/2) + Math.floor(wclient/2);
+	var maxh = Math.floor(h/2) + Math.floor(hclient/2);
 	var radius = 10;
 
 	var svg = d3.select("body")
 				.append('svg')
 				.attr('width', w)
 				.attr('height', h)
-				.attr('viewBox', '' + minw + ' ' + minh + ' ' + wclient + ' ' + hclient)
+				.attr('viewBox', '' + minw + ' ' + minh + ' ' + maxw + ' ' + maxh)
 				.call(d3.zoom()
 						.on("zoom", function () {
 							nodes.attr("transform", d3.event.transform);
