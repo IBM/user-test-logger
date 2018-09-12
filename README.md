@@ -17,11 +17,15 @@ Checkout this video showing the setup procedure:
 
 [![User Test Logger - Setup](http://img.youtube.com/vi/0ihIVZ25s0E/0.jpg)](https://youtu.be/0ihIVZ25s0E "User Test Logger - Setup")
 
-## Capturing
+## Logging
 
 Once the plugin is loaded, you will be able to see the "L" icon. After clicking at the "L" icon, you will be able to select the events of interest grouped by type of event, e.g., mouse, keyboard, etc.
 
 Once you select the events of interest, you can click record. After that, all events triggered of the type you selected will be logged.
+
+Checkout this video showing the logging procedure:
+
+[![User Test Logger - Logging](http://img.youtube.com/vi/O1TcKH9kUnY/0.jpg)](https://youtu.be/O1TcKH9kUnY "User Test Logger - Logging")
 
 ## Analyzing
 
