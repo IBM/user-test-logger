@@ -29,10 +29,6 @@ Checkout this video showing the logging procedure:
 
 ## Analysis
 
-Checkout this video showing an overview of reporting capabilities:
-
-[![User Test Logger - Analysis](http://img.youtube.com/vi/nzL9ghswHhg/0.jpg)](https://youtu.be/nzL9ghswHhg "User Test Logger - Analysis")
-
 ### Usage Graph
 
 The usage graph can also be seen as the combination of walks (non-empty alternating sequence of nodes and edges) representing what, where, and when users performed actions. In the usage graph a node is identified by its label, which is the concatenation of the event name and an identifier of the UI element where the event occurred. Moreover, each node counts on information regarding the total of sessions they occurred, mean distance from the root node, mean timestamp, among others.
@@ -50,4 +46,6 @@ The fixations are computed according to the dispersion algorithm presented in th
 
 The mouse plot shows mouse movements, clicks and double clicks. It can be useful for comparing task performance and showing user's mouse path.
 
+Checkout this video showing an overview of reporting capabilities:
 
+[![User Test Logger - Analysis](http://img.youtube.com/vi/nzL9ghswHhg/0.jpg)](https://youtu.be/nzL9ghswHhg "User Test Logger - Analysis")
