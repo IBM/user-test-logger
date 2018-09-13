@@ -31,7 +31,7 @@ Checkout this video showing the logging procedure:
 
 Checkout this video showing an overview of reporting capabilities:
 
-[![User Test Logger - Analysis](http://img.youtube.com/vi/o6DmDAxE2h4/0.jpg)](https://youtu.be/o6DmDAxE2h4 "User Test Logger - Analysis")
+[![User Test Logger - Analysis](http://img.youtube.com/vi/nzL9ghswHhg/0.jpg)](https://youtu.be/nzL9ghswHhg "User Test Logger - Analysis")
 
 ### Usage Graph
 
