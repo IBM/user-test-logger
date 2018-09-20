@@ -133,7 +133,25 @@
 	
 		var reportTab = browser.tabs.create({
 			url:reportPage
-		});			console.log('test');
+		});	
+	}
+	
+	function downloadMousePlot(){
+		var downloadPage = browser.extension.getURL('download/downloadMousePlot.html');
+		console.log( browser.extension.getURL('download/reportMousePlot.html') );
+	
+		var downloadTab = browser.tabs.create({
+			url:downloadPage
+		});
+	}
+	
+	function downloadHeatmap(){
+		var downloadPage = browser.extension.getURL('download/downloadHeatmap.html');
+		console.log( browser.extension.getURL('download/reportHeatmap.html') );
+	
+		var downloadTab = browser.tabs.create({
+			url:downloadPage
+		});
 	}
 	
 	browser.runtime.onConnect.addListener(connected);

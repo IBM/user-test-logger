@@ -42,6 +42,14 @@ function clicksHandler(event){
 	function callReportHeatmap(backPage){
 		backPage.reportHeatmap();
 	}
+	
+	function callDownloadHeatmap(backPage){
+		backPage.downloadHeatmap();
+	}
+	
+	function callDownloadMousePlot(backPage){
+		backPage.downloadMousePlot();
+	}
 		
 	//HANDLING THE CLICKS
 	var popupButton = event.target.id;
@@ -90,7 +98,7 @@ function clicksHandler(event){
 				contextShift("popup-content-main", "popup-content-report");
 			}
 			break;
-		case 'graph':
+		case 'innerGraph':
 			console.log(popupButton);
 			allDisabled();
 			recordFlag = 0;
@@ -99,7 +107,7 @@ function clicksHandler(event){
 			background.then(callReportGraph, onError);
 			window.close();
 			break;
-		case 'heatmap':
+		case 'innerHeatmap':
 			console.log(popupButton);
 			allDisabled();
 			recordFlag = 0;
@@ -108,13 +116,26 @@ function clicksHandler(event){
 			background.then(callReportHeatmap, onError);
 			window.close();
 			break;
-		case 'mousePlot':
+		case 'innerMousePlot':
 			console.log(popupButton);
 			allDisabled();
 			recordFlag = 0;
 			downloadFlag = 0;
 			eventFlag = 0;
 			background.then(callReportMp, onError);
+			window.close();
+			break;
+		case 'divDownloadGraph':
+		case 'imageDownloadGraph':
+			break;
+		case 'divDownloadHeatmap':
+		case 'imageDownloadHeatmap':
+			background.then(callDownloadHeatmap, onError);
+			window.close();
+			break;
+		case 'divDownloadMousePlot':
+		case 'imageDownloadMousePlot':
+			background.then(callDownloadMousePlot, onError);
 			window.close();
 			break;
 		case 'downloadAll':

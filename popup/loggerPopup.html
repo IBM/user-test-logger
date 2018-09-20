@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="loggerPopup.css"/>
-	<link rel="stylesheet" href="../bootstrap.min.css">
   </head>
 
 <body>
@@ -21,9 +20,9 @@
     <div class="margin"></div>
 	<div class="title">Report</div>
 	<div id="backReport" class="button backReport"> <i id="leftReport" class="arrow left"></i> </div>
-	<div id="graph" class="button graph">Usage Graph</div>
-    <div id="heatmap" class="button heatmap">Heatmap</div>
-	<div id="mousePlot" class="button mousePlot">Mouse Plot</div>
+	<div id="graph" class="graph"> <div id="innerGraph" class="innerReport">Usage Graph</div> <div id="divDownloadGraph" class="downloadReport"><img id="imageDownloadGraph" class="image" src="../icons/download_32.png" alt="downloadImg"></img></div>  
+    <div id="heatmap" class="heatmap"> <div id="innerHeatmap" class="innerReport">Heatmap</div> <div id="divDownloadHeatmap" class="downloadReport"><img id="imageDownloadHeatmap" class="image" src="../icons/download_32.png" alt="downloadImg"></img></div> </div>
+	<div id="mousePlot" class="mousePlot"> <div id="innerMousePlot" class="innerReport">Mouse Plot</div> <div id="divDownloadMousePlot" class="downloadReport"><img id="imageDownloadMousePlot" class="image" src="../icons/download_32.png" alt="downloadImg"></img></div> </div>
 	<div class="margin"></div>
   </div>
   
@@ -99,6 +98,8 @@
   </div>
   
   <script src="../jquery-3.2.1.min.js"></script>
+  <script src="../saveSvgAsPng.js"></script>
+  <script src="../d3.min.js"></script>
   <script src="../FileSaver.min.js"></script>
   <script src="../loggerPlugin.js"></script>
   <script src="loggerPopup.js"></script>

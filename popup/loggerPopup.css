@@ -90,10 +90,10 @@ i {
 }
 
 .right {
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-	position:relative;
-	top: 4px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  position:relative;
+  top: 4px;
 }
 
 #rightEvents, #rightReport {
@@ -101,16 +101,53 @@ i {
 }
 
 .left {
-	float: left;	
-	transform: rotate(-225deg);
-    -webkit-transform: rotate(-225deg);
+  float: left;	
+  transform: rotate(-225deg);
+  -webkit-transform: rotate(-225deg);
 	
 }
 
 .image{
-	width: 16px;
-	height: 16px;
-	position: relative;
-	left: -5px;
-	top: 2px;
+  width: 16px;
+  height: 16px;
+  position: relative;
+  left: -5px;
+  top: 2px;
 }
+
+.innerReport, .downloadReport {
+  display: inline-block;  
+  padding: 8px;
+  text-align: left;
+  font-size: 0.7em;
+  cursor: pointer;
+  background-color: #ffffff;
+  font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;
+  color: black;
+  position: relative;
+  border-radius: 2px;
+}
+
+.innerReport {
+  width: 70%;
+}
+
+.downloadReport {
+  width: 10%;
+  padding: 4px 6px 6px 6px;
+}
+
+.innerReport:hover, .downloadReport:hover {
+   background-color: rgba(12, 12, 13, 0.05);
+}
+
+.innerReport:active, .downloadReport:active {
+   background-color: rgba(12, 12, 13, 0.1);
+}
+
+#imageDownloadGraph, #imageDownloadHeatmap, #imageDownloadMousePlot{
+  position: relative;
+  left: 2px;
+  top: 2px;
+}
+

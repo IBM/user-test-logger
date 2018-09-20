@@ -30,5 +30,10 @@
     "default_icon": "icons/logger-32.png",
     "default_title": "Logger",
     "default_popup": "popup/loggerPopup.html"
+  },
+  "applications": {
+    "gecko": {
+      "id": "user-test-logger@ibm.com"
+    }
   }
 }

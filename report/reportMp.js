@@ -207,8 +207,10 @@ function mousePlot(loggerPack){
 					 		 
 }
 
-function init(backPage){
+function init(backPage){	
+	console.log('Run');
 	mousePlot(backPage.loggerPack);
+	console.log('out');
 }
 
 var background = browser.runtime.getBackgroundPage();

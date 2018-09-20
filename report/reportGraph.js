@@ -156,7 +156,7 @@ function createGraph(loggerPack){
 	start.sam = 'regular';
 	end.sam = 'regular';
 	
-	displayGraph(graph);	
+	return graph;	
 }
 
 function sam(graph){	
@@ -462,7 +462,8 @@ function displayGraph(graph){
 }	
 
 function init(backPage){
-	createGraph(backPage.loggerPack);
+	graph = createGraph(backPage.loggerPack);
+	displayGraph(graph);
 }
 
 var background = browser.runtime.getBackgroundPage();
