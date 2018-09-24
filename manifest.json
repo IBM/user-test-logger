@@ -10,7 +10,7 @@
   },
 
   "background": {
-    "scripts": ["FileSaver.min.js", "background.js"]
+    "scripts": ["lib/FileSaver.min.js", "background.js"]
 },
   
   "permissions": [
@@ -20,11 +20,11 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["jquery-3.2.1.min.js", "loggerPlugin.js"]
+      "js": ["lib/jquery-3.2.1.min.js", "loggerPlugin.js"]
     }
   ],
   
-  "web_accessible_resources": ["report/report.html", "report/d3.min.js", "report.css"],
+  "web_accessible_resources": ["report/report.html", "lib/d3.min.js", "report.css"],
   
   "browser_action": {
     "default_icon": "icons/logger-32.png",
