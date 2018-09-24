@@ -32,7 +32,7 @@
 				console.log('REPORT CLOSED');
 			});
 		}
-		else{
+		else if(p.name == 'port-from-cs'){
 			connections++;
 			currentPort = (webPagesIds++).toString();
 			portsFromCS[currentPort] = p;
@@ -45,6 +45,15 @@
 		
 			portsFromCS[currentPort].onMessage.addListener(function(m) {
 				loggerPack.push(m.line);
+			});
+		}
+		else if(p.name == 'port-from-download'){
+			p.onMessage.addListener(function(m, port){
+				if(m.done == 1){
+					
+					browser.tabs.remove(port.sender.tab.id);
+					
+				}
 			});
 		}
 	}
@@ -161,6 +170,7 @@
 		var downloadTab = browser.tabs.create({
 			url:downloadPage
 		});
+		
 	}
 	
 	browser.runtime.onConnect.addListener(connected);

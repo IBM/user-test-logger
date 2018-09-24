@@ -77,6 +77,7 @@ function init(backPage){
 	
 	saveAs(blob, filename, true);
 	
+	myPort.postMessage({done: 1});
 }
 
 var background = browser.runtime.getBackgroundPage();
