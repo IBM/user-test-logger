@@ -111,7 +111,7 @@
 	
 	function reportGraph(){
 		var reportPage = browser.extension.getURL('report/reportGraph.html');
-		console.log( browser.extension.getURL('report/reportGraph.html') );
+		console.log( reportPage );
 	
 		var reportTab = browser.tabs.create({
 			url:reportPage
@@ -119,8 +119,8 @@
 	}
 	
 	function reportMp(){
-		var reportPage = browser.extension.getURL('report/reportMp.html');
-		console.log( browser.extension.getURL('report/reportMp.html') );
+		var reportPage = browser.extension.getURL('report/reportMousePlot.html');
+		console.log( reportPage );
 	
 		var reportTab = browser.tabs.create({
 			url:reportPage
@@ -129,7 +129,7 @@
 	
 	function reportHeatmap(){
 		var reportPage = browser.extension.getURL('report/reportHeatmap.html');
-		console.log( browser.extension.getURL('report/reportHeatmap.html') );
+		console.log( reportPage );
 	
 		var reportTab = browser.tabs.create({
 			url:reportPage
@@ -138,7 +138,7 @@
 	
 	function downloadMousePlot(){
 		var downloadPage = browser.extension.getURL('download/downloadMousePlot.html');
-		console.log( browser.extension.getURL('download/reportMousePlot.html') );
+		console.log( downloadPage );
 	
 		var downloadTab = browser.tabs.create({
 			url:downloadPage
@@ -147,7 +147,7 @@
 	
 	function downloadHeatmap(){
 		var downloadPage = browser.extension.getURL('download/downloadHeatmap.html');
-		console.log( browser.extension.getURL('download/reportHeatmap.html') );
+		console.log( downloadPage );
 	
 		var downloadTab = browser.tabs.create({
 			url:downloadPage

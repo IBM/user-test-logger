@@ -156,6 +156,8 @@ function createGraph(loggerPack){
 	start.sam = 'regular';
 	end.sam = 'regular';
 	
+	console.log(graph);
+	
 	return graph;	
 }
 

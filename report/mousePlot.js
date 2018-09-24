@@ -206,15 +206,3 @@ function mousePlot(loggerPack){
 				   .attr('text-anchor', 'middle');
 					 		 
 }
-
-function init(backPage){	
-	console.log('Run');
-	mousePlot(backPage.loggerPack);
-	console.log('out');
-}
-
-var background = browser.runtime.getBackgroundPage();
-
-var myPort = browser.runtime.connect({name:"port-from-report"});
-
-background.then(init);
