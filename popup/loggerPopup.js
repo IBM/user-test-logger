@@ -43,6 +43,10 @@ function clicksHandler(event){
 		backPage.reportHeatmap();
 	}
 	
+	function callDownloadGraph(backPage){
+		backPage.downloadGraph();
+	}
+	
 	function callDownloadHeatmap(backPage){
 		backPage.downloadHeatmap();
 	}
@@ -127,6 +131,8 @@ function clicksHandler(event){
 			break;
 		case 'divDownloadGraph':
 		case 'imageDownloadGraph':
+			background.then(callDownloadGraph, onError);
+			window.close();
 			break;
 		case 'divDownloadHeatmap':
 		case 'imageDownloadHeatmap':

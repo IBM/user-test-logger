@@ -136,6 +136,15 @@
 		});	
 	}
 	
+	function downloadGraph(){
+		var downloadPage = browser.extension.getURL('download/downloadGraph.html');
+		console.log( downloadPage );
+	
+		var downloadTab = browser.tabs.create({
+			url:downloadPage
+		});
+	}
+	
 	function downloadMousePlot(){
 		var downloadPage = browser.extension.getURL('download/downloadMousePlot.html');
 		console.log( downloadPage );
