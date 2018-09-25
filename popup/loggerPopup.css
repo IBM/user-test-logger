@@ -71,7 +71,7 @@ input[type=checkbox] {
 	background-color:  #ffffff;
 }
 
-.backEvents, .backReport{
+.backEvents, .backReport, .backAbout{
   width: 13px;
   height : 9px;
 }
@@ -151,3 +151,10 @@ i {
   top: 2px;
 }
 
+.description {
+  cursor: default;
+}
+
+.description:hover {
+  background-color: white;
+}

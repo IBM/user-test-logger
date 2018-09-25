@@ -161,6 +161,14 @@ function clicksHandler(event){
 				contextShift("popup-content-main", "popup-content-events");
 			}
 			break;
+		case 'about':
+		case 'imageAbout':
+			contextShift("popup-content-main", "popup-content-about");
+			break;
+		case 'backAbout':
+		case 'leftAbout':
+			contextShift("popup-content-about", "popup-content-main");
+			break;
 		case 'keyboard':
 		case 'rightKeyboard':
 			contextShift("popup-content-events", "popup-content-events-keyboard");
