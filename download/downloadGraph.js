@@ -1,10 +1,9 @@
 function getColor(sam){
+	color = "";
 	if(sam == 'incident'){
 	   color = 'red';
 	}
-	  else{
-	   color = 'yellow';
-	}
+
 	return color;
 }
 
@@ -19,7 +18,7 @@ function createDot(graph){
 	var links = graph.links;
 	
 	stringDot += "digraph {\n";
-	stringDot += "\tnode [shape=record fontname=Arial];\n";
+	stringDot += "\tnode [shape=record, style=filled, fillcolor=yellow, fontname=Arial];\n";
 	
 	var length = nodes.length;
 	for(i = 0; i < length; i++){
@@ -27,7 +26,7 @@ function createDot(graph){
 		stringDot += "\t" + i + 
 		
 			' [label="' + node.id + '"' + 
-			', color="' + getColor(node.sam) + '"' +
+			', fillcolor="' + getColor(node.sam) + '"' +
 		
 		']\n';	
 	}
