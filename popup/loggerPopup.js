@@ -103,6 +103,7 @@ function clicksHandler(event){
 			}
 			break;
 		case 'innerGraph':
+		case 'imageViewGraph':
 			console.log(popupButton);
 			allDisabled();
 			recordFlag = 0;
@@ -112,6 +113,7 @@ function clicksHandler(event){
 			window.close();
 			break;
 		case 'innerHeatmap':
+		case 'imageViewHeatmap':
 			console.log(popupButton);
 			allDisabled();
 			recordFlag = 0;
@@ -121,6 +123,7 @@ function clicksHandler(event){
 			window.close();
 			break;
 		case 'innerMousePlot':
+		case 'imageViewMousePlot':
 			console.log(popupButton);
 			allDisabled();
 			recordFlag = 0;
