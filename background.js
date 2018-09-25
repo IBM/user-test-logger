@@ -40,7 +40,13 @@
 			//Sending the first message to update sender's settings
 			message.string = 'init';
 			message.settings = settings;
-			message.id = webPagesIds;
+			
+			//now sending the tab id, if it is the logger popup get the contextId
+			if(p.sender.tab != undefined)
+				message.id = p.sender.tab.id;
+			else
+				message.id = p.sender.contextId
+			
 			portsFromCS[currentPort].postMessage(message);
 		
 			portsFromCS[currentPort].onMessage.addListener(function(m) {

@@ -156,8 +156,6 @@ function createGraph(loggerPack){
 	start.sam = 'regular';
 	end.sam = 'regular';
 	
-	console.log(graph);
-	
 	return graph;	
 }
 
@@ -179,20 +177,41 @@ function sam(graph){
 	}
 }
 
+//formatting timestamp -> human readable
 function getTimestamp(time){	
 	var timehr = '';
 	var x = 0;	
 	x = Math.floor(time/3600000);
-	timehr += '' + x;
+	if(x < 10 && x > -1)
+		timehr += '0' + x;
+	else	
+		timehr += '' + x;
+	
 	time = time%3600000;
 	x = Math.floor(time/60000);
-	timehr += ':' + x;
+	if(x < 10 && x > -1)
+		timehr += ':0' + x;
+	else
+		timehr += ':' + x;
+	
 	time = time%60000;
 	x = Math.floor(time/1000);
-	timehr += ':' + x;
-	time = Math.floor(time%1000);
-	timehr += '.' + time;
+	if(x < 10 && x > -1)
+		timehr += ':0' + x;
+	else
+		timehr += ':' + x;
 	
+	time = Math.floor(time%1000);
+	x = Math.floor(time/1000);
+	if(time < 10 && x > -1){
+		timehr += '.00' + time;
+	}
+	else if(time < 100 && x > -1){
+		timehr += '.0' + time;
+	}
+	else{
+		timehr += '.' + time;
+	}
 	return timehr;	
 }
 

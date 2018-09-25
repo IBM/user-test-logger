@@ -1,6 +1,10 @@
 function clicksHandler(event){
 	//FUNCTIONS	
 	function save(loggerPack){
+		//appending header
+		loggerPack.unshift({_comment:["Tab id", "Referer", "Timestamp", "Event", "Element Id", "X Path", "Which", "Extra Info"]});
+		
+		
 		
 		var blob = new Blob([JSON.stringify(loggerPack, null, '\t')], {type: "text/json;charset=utf-8"});
 		
