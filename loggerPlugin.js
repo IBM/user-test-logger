@@ -65,9 +65,16 @@ var methods = {
 	getId : function (event) {
 		return ((typeof (event.target.id) != 'undefined' && event.target.id) ? event.target.id : ((typeof (event.target.name) != 'undefined' && event.target.name) ? event.target.name : settings.nullMarker));
 	},
-
+	
+	//Filtering data in target.type == password
 	getWhich : function (event) {
-		return ((typeof (event.which) != 'undefined' && event.which) ? event.which.toString() : settings.nullMarker);
+		var whichKey = settings.nullMarker;
+		if(typeof (event.which) != 'undefined' && event.which){
+			whichKey = event.which.toString();
+			if(event.target.type == "password") whichKey = "*";
+		}
+		
+		return whichKey;
 	},
 
 	getExtraInfo : function (event) {

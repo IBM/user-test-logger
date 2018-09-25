@@ -2,11 +2,16 @@ function clicksHandler(event){
 	//FUNCTIONS	
 	function save(loggerPack){
 		//appending header
-		loggerPack.unshift({_comment:["Tab id", "Referer", "Timestamp", "Event", "Element Id", "X Path", "Which", "Extra Info"]});
+		loggerPack.unshift(["Tab id", "Referer", "Timestamp", "Event", "Element Id", "X Path", "Which", "Extra Info"]);
 		
+		//formatting log
+		var stringLoggerPack = JSON.stringify(loggerPack, null, '\t');
 		
+		stringLoggerPack = stringLoggerPack.replace(/\t+/g, "" );
+		stringLoggerPack = stringLoggerPack.replace(/\n/g, "" );
+		stringLoggerPack = stringLoggerPack.replace(/\],/g, "],\n" );
 		
-		var blob = new Blob([JSON.stringify(loggerPack, null, '\t')], {type: "text/json;charset=utf-8"});
+		var blob = new Blob([stringLoggerPack], {type: "text/json;charset=utf-8"});
 		
 		var date = new Date(); 
         var fileName = "" + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "T" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + "-log.json";

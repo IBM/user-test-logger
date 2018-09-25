@@ -41,11 +41,11 @@
 			message.string = 'init';
 			message.settings = settings;
 			
-			//now sending the tab id, if it is the logger popup get the contextId
+			//now sending the tab id, if it is the logger popup sets to 0
 			if(p.sender.tab != undefined)
 				message.id = p.sender.tab.id;
 			else
-				message.id = p.sender.contextId
+				message.id = 0
 			
 			portsFromCS[currentPort].postMessage(message);
 		
