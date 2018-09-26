@@ -65,9 +65,7 @@ Next, the search with the name "donald knuth" is submitted:
 ![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/typing-knuth-2.png)
 
 Then the search web address is loaded:
-![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/google-search.png)
-![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/google-search-2.png)
-![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/google-search-3.png)
+![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/google-search.png)![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/google-search-2.png)![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/google-search-3.png)
 
 Finally, wikipedia page about Donald Knuth is reached:
 ![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/entering-wikipedia.png)
