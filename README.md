@@ -49,3 +49,19 @@ The mouse plot shows mouse movements, clicks and double clicks. It can be useful
 Checkout this video showing an overview of reporting capabilities:
 
 [![User Test Logger - Analysis](http://img.youtube.com/vi/nzL9ghswHhg/0.jpg)](https://youtu.be/nzL9ghswHhg "User Test Logger - Analysis")
+
+## Log File
+
+The log file contains all the DOM events triggered during the recording. It can be downloaded by clicking on "Dump raw data". Each line in the log file is an event, whose structure is described by the first line. 
+
+### Example
+A simple task of searching a name at google was performed as an example:
+
+![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/header-google-search.png)
+![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/google-search.png)
+![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/google-search-2.png)
+![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/google-search-3.png)
+![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/typing-knuth.png)
+![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/typing-knuth-2.png)
+![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/entering-wikipedia.png)
+
