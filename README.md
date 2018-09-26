@@ -57,6 +57,11 @@ The log file contains all the DOM events triggered during the recording. It can 
 ### Example
 A simple task of searching a name at google was performed as an example:
 
-The task started loading the google web page.
 ![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/header-google-search.png)
+![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/google-search.png)
+![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/google-search-2.png)
+![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/google-search-3.png)
+![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/typing-knuth.png)
+![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/typing-knuth-2.png)
+![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/entering-wikipedia.png)
 
