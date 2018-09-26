@@ -56,5 +56,5 @@ The log file contains all the DOM events triggered during the recording. It can 
 
 A simple task of searching a name at google was performed as an example:
 
-[Log Header](imgs/header-google-search)
+![alt text](https://raw.githubusercontent.com/Felipe-Ferreira1/IBM/user-test-logger/master/imgs/header-google-search.png)
 
