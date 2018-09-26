@@ -49,3 +49,12 @@ The mouse plot shows mouse movements, clicks and double clicks. It can be useful
 Checkout this video showing an overview of reporting capabilities:
 
 [![User Test Logger - Analysis](http://img.youtube.com/vi/nzL9ghswHhg/0.jpg)](https://youtu.be/nzL9ghswHhg "User Test Logger - Analysis")
+
+## Log File
+
+The log file contains all the DOM events triggered during the recording. It can be downloaded by clicking on "Dump raw data". Each line in the log file is an event, whose structure is described by the first line. 
+
+A simple task of searching a name at google was performed as an example:
+
+[Log Header](imgs/header-google-search)
+
