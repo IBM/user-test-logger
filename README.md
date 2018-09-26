@@ -54,7 +54,9 @@ Checkout this video showing an overview of reporting capabilities:
 
 The log file contains all the DOM events triggered during the recording. It can be downloaded by clicking on "Dump raw data". Each line in the log file is an event, whose structure is described by the first line. 
 
+### Example
 A simple task of searching a name at google was performed as an example:
 
+The task started loading the google web page.
 ![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/header-google-search.png)
 
