@@ -109,11 +109,14 @@ function init(backPage){
 	var dimW = svg.width.baseVal.value;
 	var dimH = svg.height.baseVal.value;
 	
+	var date = new Date(); 
+    var fileName = "" + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "T" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + "-mousePlot.png";
+	
 	var svgString = getSVGString(svg);
 	svgString2Image( svgString, dimW, dimH, 'png', save ); // passes Blob and filesize String to the callback
 
 	function save( dataBlob, filesize ){
-		saveAs( dataBlob, 'D3 vis exported to PNG.png' ); // FileSaver.js function
+		saveAs( dataBlob, fileName ); // FileSaver.js function
 	}
 }
 
