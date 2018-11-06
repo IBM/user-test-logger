@@ -203,6 +203,8 @@ function mousePlot(loggerPack){
 			       })
 				   .attr('dy', 2)
 				   .attr('font-size', '10px')
-				   .attr('text-anchor', 'middle');
+				   .attr('text-anchor', 'middle')
+				   .attr('fill', 'white')
+				   .attr('font-family', 'sans-serif');
 					 		 
 }
