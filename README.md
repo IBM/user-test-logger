@@ -27,6 +27,29 @@ Checkout this video showing the logging procedure:
 
 [![User Test Logger - Logging](http://img.youtube.com/vi/O1TcKH9kUnY/0.jpg)](https://youtu.be/O1TcKH9kUnY "User Test Logger - Logging")
 
+### Log File
+
+The log file contains all the DOM events triggered during the recording. It can be downloaded by clicking on "Dump raw data". Each line in the log file is an event, whose structure is described by the first line. 
+
+#### Example
+A simple task of searching a name at google was performed as an example:
+
+At the beginning of the file, it's possible to see the header containing the log lines' structure and the "pageview" event triggered at the google page:
+![alt log file](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/header-google-search.png)
+
+Next, the search with the name "donald knuth" is submitted:
+![alt log file](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/typing-knuth.png)
+![alt log file](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/typing-knuth-2.png)
+
+Then the search web address is loaded:
+![alt log line](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/google-search.png)
+![alt log line](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/google-search-2.png)
+![alt log line](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/google-search-3.png)
+
+Finally, wikipedia page about Donald Knuth is reached:
+![alt log file](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/entering-wikipedia.png)
+
+
 ## Analysis
 
 ### Usage Graph
@@ -50,18 +73,6 @@ Checkout this video showing an overview of reporting capabilities:
 
 [![User Test Logger - Analysis](http://img.youtube.com/vi/nzL9ghswHhg/0.jpg)](https://youtu.be/nzL9ghswHhg "User Test Logger - Analysis")
 
-## Log File
+## Citing the User Test Logger
 
-The log file contains all the DOM events triggered during the recording. It can be downloaded by clicking on "Dump raw data". Each line in the log file is an event, whose structure is described by the first line. 
-
-### Example
-A simple task of searching a name at google was performed as an example:
-
-![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/header-google-search.png)
-![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/google-search.png)
-![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/google-search-2.png)
-![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/google-search-3.png)
-![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/typing-knuth.png)
-![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/typing-knuth-2.png)
-![alt text](https://raw.githubusercontent.com/IBM/user-test-logger/master/imgs/entering-wikipedia.png)
-
+Please cite as: Santana, V. F., and Silva, F. E. F. 2018. User Test Logger: A General-Purpose Web Browser Logging and Reporting Tool for Local User Studies. IBM Research Technical Report.
