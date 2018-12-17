@@ -14,19 +14,28 @@
   width: 100%;
   border-collapse: collapse;
   text-align: left;
+  border-bottom: 1px solid #666;
+  border-top: 1px solid #666;
+  border-left : 2px solid #666;
+  border-right: 2px solid #666;
 }
-
-/*th, td {
-  border: 1px solid #c0bfc0;
-  padding: 0.8em;
-}*/
 
 th {
-  #font-size: 1em;
+  border-bottom: 2px solid #666;
+  border-top: 3px solid #666;
+  border-left : 2px solid #666;
+  border-right: 2px solid #666;
+  padding: 10px 5px 10px 5px;
+  text-align: center;
+  font-size: 1.1em;
+  margin: -10px -10px -10px -10px;
 }
+
 td{
-  #font-size: 0.9em;
-  border: 1px solid #666;
+  border-bottom: 1px solid #666;
+  border-top: 1px solid #666;
+  border-left : 1px solid #666;
+  border-right: 1px solid #666;
   text-align: center;
   padding: 0;
   margin: 0;
