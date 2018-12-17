@@ -151,6 +151,15 @@
 		});	
 	}
 	
+	function reportPatterns(){
+		var reportPage = browser.extension.getURL('report/reportPatterns.html');
+		console.log( reportPage );
+	
+		var reportTab = browser.tabs.create({
+			url:reportPage
+		});	
+	}
+	
 	function downloadGraph(){
 		var downloadPage = browser.extension.getURL('download/downloadGraph.html');
 		console.log( downloadPage );
@@ -171,6 +180,16 @@
 	
 	function downloadHeatmap(){
 		var downloadPage = browser.extension.getURL('download/downloadHeatmap.html');
+		console.log( downloadPage );
+	
+		var downloadTab = browser.tabs.create({
+			url:downloadPage
+		});
+		
+	}
+	
+	function downloadPatterns(){
+		var downloadPage = browser.extension.getURL('download/downloadPatterns.html');
 		console.log( downloadPage );
 	
 		var downloadTab = browser.tabs.create({

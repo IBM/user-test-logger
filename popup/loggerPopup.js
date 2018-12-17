@@ -52,6 +52,10 @@ function clicksHandler(event){
 		backPage.reportHeatmap();
 	}
 	
+	function callReportPatterns(backPage){
+		backPage.reportPatterns();
+	}
+	
 	function callDownloadGraph(backPage){
 		backPage.downloadGraph();
 	}
@@ -62,6 +66,10 @@ function clicksHandler(event){
 	
 	function callDownloadMousePlot(backPage){
 		backPage.downloadMousePlot();
+	}
+	
+	function callDownloadPatterns(backPage){
+		backPage.downloadPatterns();
 	}
 		
 	//HANDLING THE CLICKS
@@ -141,6 +149,16 @@ function clicksHandler(event){
 			background.then(callReportMp, onError);
 			window.close();
 			break;
+		case 'innerPatterns':
+		case 'imageViewPatterns':
+			console.log(popupButton);
+			allDisabled();
+			recordFlag = 0;
+			downloadFlag = 0;
+			eventFlag = 0;
+			background.then(callReportPatterns, onError);
+			window.close();
+			break;
 		case 'divDownloadGraph':
 		case 'imageDownloadGraph':
 			background.then(callDownloadGraph, onError);
@@ -154,6 +172,11 @@ function clicksHandler(event){
 		case 'divDownloadMousePlot':
 		case 'imageDownloadMousePlot':
 			background.then(callDownloadMousePlot, onError);
+			window.close();
+			break;
+		case 'divDownloadPatterns':
+		case 'imageDownloadPatterns':
+			background.then(callDownloadPatterns, onError);
 			window.close();
 			break;
 		case 'downloadAll':
