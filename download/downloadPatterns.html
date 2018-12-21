@@ -2,11 +2,108 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <script src="../lib/canvas-toBlob.js"></script>
   <script src="../lib/FileSaver.min.js"></script>
   <script src="../lib/d3.min.js"></script>
 </head>
+<style>
+.content {
+  height: 100%;
+}
+
+.tableContent {
+  position: relative;
+  top: 10%;
+  margin: 0 auto;
+  width: 80%;
+  height: 80%;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  border-bottom: 1px solid #666;
+  border-top: 1px solid #666;
+  border-left : 2px solid #666;
+  border-right: 2px solid #666;
+}
+
+th {
+  border-bottom: 2px solid #666;
+  border-top: 3px solid #666;
+  border-left : 2px solid #666;
+  border-right: 2px solid #666;
+  padding: 10px 5px 10px 5px;
+  text-align: center;
+  font-size: 1.1em;
+  margin: -10px -10px -10px -10px;
+}
+
+td{
+  border-bottom: 1px solid #666;
+  border-top: 1px solid #666;
+  border-left : 1px solid #666;
+  border-right: 1px solid #666;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+
+.source, .target, .eoi {
+  padding: 0px 0px 0px 0px;
+  border-bottom: 1px solid #666;
+  border-top: 1px solid #666;
+  border-left : 1px solid #666;
+  border-right: 1px solid #666;
+}
+
+.innerTable {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  border-collapse: collapse;
+}
+
+.innerRow:nth-child(even) {
+    background-color: #eaeaea;
+}
+
+
+
+.box .tooltiptxt {
+  font-size: 0.85em;
+  visibility: hidden;
+  width: 190px;
+  background-color: white;
+  color: black;
+  text-align: left;
+  border: 1px solid black;
+  padding: 5px 5px 5px 5px;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+</style>
 <body>
+
+  <div id="content" class="content">
+    <div id="divTable" class="tableContent">
+    <table id="jobsTable" class="table">
+      <tr>
+	    <th id="header1" class="index">Predecessor</th>
+	    <th id="header2" class="index">Event of Interest</th>
+	    <th id="header3" class="index">Successor</th>
+      </tr>
+    </table>
+    </div>
+  </div>
+
   <script src="../report/graph.js"></script>
+  <script src="../report/patterns.js"></script>
   <script src="downloadPatterns.js"></script>
 </body>
 </html>
