@@ -302,7 +302,8 @@ function displayGraph(graph){
 						tooltip = 'Event: ' + d.eventName + '\n' +
 						'Tab: ' + d.tabId + '\n' +
 						'Path: ' + d.path + '\n' +
-						'Mean Distance: ' + d.meanDistance + '\n' + 
+						'Element Id: ' + d.elementId + '\n' +
+						'Mean Distance: ' + d.meanDistance.toFixed(2) + '\n' + 
 						'Mean Time: ' + hrTime;
 						    
 						return tooltip;

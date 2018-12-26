@@ -1,3 +1,42 @@
+//formatting timestamp -> human readable
+function getTimestamp(time){	
+	var timehr = '';
+	var x = 0;	
+	x = Math.floor(time/3600000);
+	if(x < 10 && x > -1)
+		timehr += '0' + x;
+	else	
+		timehr += '' + x;
+	
+	time = time%3600000;
+	x = Math.floor(time/60000);
+	if(x < 10 && x > -1)
+		timehr += ':0' + x;
+	else
+		timehr += ':' + x;
+	
+	time = time%60000;
+	x = Math.floor(time/1000);
+	if(x < 10 && x > -1)
+		timehr += ':0' + x;
+	else
+		timehr += ':' + x;
+	
+	time = Math.floor(time%1000);
+	x = Math.floor(time/1000);
+	if(time < 10 && x > -1){
+		timehr += '.00' + time;
+	}
+	else if(time < 100 && x > -1){
+		timehr += '.0' + time;
+	}
+	else{
+		timehr += '.' + time;
+	}
+	return timehr;	
+}
+
+
 function getReference(nodes, links){
 	for(let x of nodes){
 		x.links = [];
@@ -72,10 +111,13 @@ function sheets(nodes, i, cardinality){
 	var table = document.getElementById("jobsTable");
 	var content = document.getElementById("content");
 	
-	while(i < cardinality){
+	var k = cardinality;	
+	while(k > i){
 		
-		node = nodes[i];
+		node = nodes[k - 1];
 		links = node.links;
+		
+		console.log(node);
 		
 		var sources = [], targets = [];
 		
@@ -164,10 +206,12 @@ function sheets(nodes, i, cardinality){
 							"\nOccurrences: " + node.occurrences +
 							"\nTab: " + node.tabId + 
 							"\nPath: " + node.path + 
-							"\nMean Distance: " + node.meanDistance + 
-							"\nMean Time: " + node.meanTimestamp;
+							"\nElement Id: " + node.elementId + 
+							"\nMean Distance: " + node.meanDistance.toFixed(2) + 
+							"\nMean Time: " + getTimestamp(node.meanTimestamp) +
+							"\nSam: " + node.sam;
 		row.appendChild(sheetEoi);
-		description = document.createTextNode(node.eventName);
+		description = document.createTextNode(node.eventName + '@' + node.elementId);
 		sheetEoi.appendChild(description);
 		
 		//tooltip in box	
@@ -224,10 +268,12 @@ function sheets(nodes, i, cardinality){
 								"\nOccurrences: " + nodeSource.occurrences +
 								"\nTab: " + nodeSource.tabId + 
 								"\nPath: " + nodeSource.path + 
-								"\nMean Distance: " + nodeSource.meanDistance + 
-								"\nMean Time: " + nodeSource.meanTimestamp;
+								"\nElement Id: " +  nodeSource.elementId +
+								"\nMean Distance: " + nodeSource.meanDistance.toFixed(2) + 
+								"\nMean Time: " + getTimestamp(nodeSource.meanTimestamp) +
+								"\nSam: " + nodeSource.sam;
 			rowSource.appendChild(sheetSource);
-			description = document.createTextNode(nodeSource.eventName);
+			description = document.createTextNode(nodeSource.eventName + '@' + nodeSource.elementId);
 			sheetSource.appendChild(description);
 			
 			rowTarget = document.createElement("tr");
@@ -240,10 +286,12 @@ function sheets(nodes, i, cardinality){
 								"\nOccurrences: " + nodeTarget.occurrences +
 								"\nTab: " + nodeTarget.tabId + 
 								"\nPath: " + nodeTarget.path + 
-								"\nMean Distance: " + nodeTarget.meanDistance + 
-								"\nMean Time: " + nodeTarget.meanTimestamp;
+								"\nElement Id: " + nodeTarget.elementId +
+								"\nMean Distance: " + nodeTarget.meanDistance.toFixed(2) + 
+								"\nMean Time: " + getTimestamp(nodeTarget.meanTimestamp) +
+								"\nSam: " + nodeTarget.sam;
 			rowTarget.appendChild(sheetTarget);
-			description = document.createTextNode(nodeTarget.eventName);
+			description = document.createTextNode(nodeTarget.eventName + '@' + nodeTarget.elementId);
 			sheetTarget.appendChild(description);
 			
 		
@@ -277,11 +325,13 @@ function sheets(nodes, i, cardinality){
 							"\nOccurrences: " + nodex.occurrences +
 							"\nTab: " + nodex.tabId + 
 							"\nPath: " + nodex.path + 
-							"\nMean Distance: " + nodex.meanDistance + 
-							"\nMean Time: " + nodex.meanTimestamp;
+							"\nElement Id: " + nodex.elementId +
+							"\nMean Distance: " + nodex.meanDistance.toFixed(2) + 
+							"\nMean Time: " + getTimestamp(nodex.meanTimestamp) +
+							"\nSam: " + nodex.sam;
 			sheet.width = "100%";
 			row.appendChild(sheet);
-			description = document.createTextNode(nodex.eventName);
+			description = document.createTextNode(nodex.eventName + '@' + nodex.elementId);
 			sheet.appendChild(description);
 			
 			
@@ -289,7 +339,7 @@ function sheets(nodes, i, cardinality){
 			j++;
 		}
 		
-		i++;
+		k--;
 	}
 
 }
