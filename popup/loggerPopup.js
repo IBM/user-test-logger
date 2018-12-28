@@ -1,6 +1,7 @@
 function clicksHandler(event){
 	//FUNCTIONS	
 	function save(loggerPack){
+		var ext;
 		//appending header
 		loggerPack.unshift(["Tab id", "Referer", "Timestamp", "Event", "Element Id", "X Path", "Which", "Extra Info"]);
 		
@@ -11,10 +12,18 @@ function clicksHandler(event){
 		stringLoggerPack = stringLoggerPack.replace(/\n/g, "" );
 		stringLoggerPack = stringLoggerPack.replace(/\],/g, "],\n" );
 		
+		ext = "-log.json";
+		
+		//transform csv
+		stringLoggerPack = stringLoggerPack.replace(/\],/g, "");
+		stringLoggerPack = stringLoggerPack.replace(/\[/g, "");
+		
+		ext = "-log.csv";
+		
 		var blob = new Blob([stringLoggerPack], {type: "text/json;charset=utf-8"});
 		
 		var date = new Date(); 
-        var fileName = "" + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "T" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + "-log.json";
+        var fileName = "" + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "T" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + ext;
 			
 		saveAs(blob, fileName);
 	}
@@ -107,9 +116,11 @@ function clicksHandler(event){
 		case 'download':
 		case 'imageDownload':
 			if(downloadFlag == 1){
-				downloadDisabled();
-				reportDisabled();
-				background.then(downloadLoggerFile, onError);	
+				if(confirm("The log files are going to be deleted. Continue?")){
+					downloadDisabled();
+					reportDisabled();
+					background.then(downloadLoggerFile, onError);	
+				}
 			}
 			break;
 		case 'report':
