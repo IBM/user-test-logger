@@ -198,4 +198,14 @@
 		
 	}
 	
+	function downloadAll(){
+		var downloadPage = browser.extension.getURL('download/downloadAll.html');
+		console.log( downloadPage );
+	
+		var downloadTab = browser.tabs.create({
+			url:downloadPage
+		});
+		
+	}
+	
 	browser.runtime.onConnect.addListener(connected);

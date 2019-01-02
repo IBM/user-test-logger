@@ -110,7 +110,7 @@ function init(backPage){
 	var dimH = svg.height.baseVal.value;
 	
 	var date = new Date(); 
-    var fileName = "" + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "T" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + "-mousePlot.png";
+    var fileName = "" + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "T" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + "-heatmap.png";
 	
 	var svgString = getSVGString(svg);
 	svgString2Image( svgString, dimW, dimH, 'png', save ); // passes Blob and filesize String to the callback

@@ -145,7 +145,7 @@ i {
    background-color: rgba(12, 12, 13, 0.1);
 }
 
-#imageDownloadGraph, #imageDownloadHeatmap, #imageDownloadMousePlot, #imageDownloadPatterns {
+#imageDownloadGraph, #imageDownloadHeatmap, #imageDownloadMousePlot, #imageDownloadPatterns, #imageDownloadAll {
   position: relative;
   left: 2px;
   top: 2px;
@@ -157,4 +157,12 @@ i {
 
 .description:hover {
   background-color: white;
+}
+
+#innerDownloadAll {
+  width: 88%;
+}
+
+#imageDownloadAll {
+  left: 90px;
 }

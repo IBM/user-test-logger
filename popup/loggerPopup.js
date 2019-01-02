@@ -80,6 +80,10 @@ function clicksHandler(event){
 	function callDownloadPatterns(backPage){
 		backPage.downloadPatterns();
 	}
+	
+	function callDownloadAll(backPage){
+		backPage.downloadAll();
+	}
 		
 	//HANDLING THE CLICKS
 	var popupButton = event.target.id;
@@ -190,7 +194,9 @@ function clicksHandler(event){
 			background.then(callDownloadPatterns, onError);
 			window.close();
 			break;
-		case 'downloadAll':
+		case 'innerDownloadAll':
+		case 'imageDownloadAll':
+			background.then(callDownloadAll, onError);
 			console.log(popupButton);
 			break;
 		case 'csv':
