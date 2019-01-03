@@ -108,6 +108,9 @@ function clicksHandler(event){
 		case 'pause':
 		case 'imagePause':
 		
+			var count = document.getElementById("count");
+			count.style.display = 'none';
+		
 			downloadActive();
 			reportActive();
 			
@@ -316,11 +319,14 @@ function init(backPage){
 	reportFlag = 0;
 	eventFlag = 1;
 	downloadFlag = 0;
+	count = document.getElementById("count");
 	
 	if(backPage.settings.recording == 1){
 		contextShift("record", "pause");
 		reportFlag = 0;
 		downloadFlag = 0;
+	
+		count.style.display = 'block';
 	}
 	
 	if(backPage.settings.recording == 0 && backPage.loggerPack.length > 0){
@@ -343,9 +349,11 @@ function init(backPage){
 		document.getElementById(events).checked = eventAndFlags[events];
 	}
 	
+	count.innerHTML += " " + backPage.loggerPack.length;
+	
 }
 
-var recordFlag, reportFlag, eventFlag, downloadFlag;
+var recordFlag, reportFlag, eventFlag, downloadFlag, count;
 
 browser.runtime.getBackgroundPage().then(init);
 

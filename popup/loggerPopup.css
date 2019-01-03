@@ -166,3 +166,16 @@ i {
 #imageDownloadAll {
   left: 90px;
 }
+
+.count {
+  padding-left: 28px;
+  cursor: default;
+}
+
+.count:hover {
+  background-color: #ffffff;
+}
+
+.count:active {
+  background-color: #ffffff;
+}
