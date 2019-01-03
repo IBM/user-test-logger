@@ -87,6 +87,10 @@ td{
   position: absolute;
   z-index: 1;
 }
+
+#margin {
+  height: 100px;
+}
 </style>
 <body>
 
@@ -100,6 +104,19 @@ td{
       </tr>
     </table>
     </div>
+	
+	<div id="margin" class="margin"></div>
+	
+	<div id="divTableIncident" class="tableContent">
+    <table id="jobsTableIncident" class="table">
+      <tr>
+	    <th id="header1Incident" class="index">Predecessor</th>
+	    <th id="header2Incident" class="index">Event of Interest</th>
+	    <th id="header3Incident" class="index">Successor</th>
+      </tr>
+    </table>
+    </div>
+	
   </div>
 
   <script src="../report/graph.js"></script>
