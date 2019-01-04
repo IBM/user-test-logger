@@ -320,6 +320,18 @@ function init(backPage){
 	eventFlag = 1;
 	downloadFlag = 0;
 	count = document.getElementById("count");
+	loggerPackReference = backPage.loggerPack;
+	
+	function eventsRecorded(e){
+		var x = "Events Recorded: " + loggerPackReference.length;	
+		count.innerHTML = x;
+	}
+
+	function bindEvents(backPage){	
+		for(events in backPage.settings.eventAndFlags){
+			$(window).bind(events, eventsRecorded);
+		}	
+	}
 	
 	if(backPage.settings.recording == 1){
 		contextShift("record", "pause");
@@ -327,6 +339,8 @@ function init(backPage){
 		downloadFlag = 0;
 	
 		count.style.display = 'block';
+		bindEvents(backPage);
+		$(window).unbind('DOMNodeInserted DOMNodeRemoved resize', eventsRecorded);
 	}
 	
 	if(backPage.settings.recording == 0 && backPage.loggerPack.length > 0){
@@ -353,7 +367,7 @@ function init(backPage){
 	
 }
 
-var recordFlag, reportFlag, eventFlag, downloadFlag, count;
+var recordFlag, reportFlag, eventFlag, downloadFlag, count, loggerPackReference;
 
 browser.runtime.getBackgroundPage().then(init);
 
