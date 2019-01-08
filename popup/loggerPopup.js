@@ -65,6 +65,10 @@ function clicksHandler(event){
 		backPage.reportPatterns();
 	}
 	
+	function callReportIncidents(backPage){
+		backPage.reportIncidents();
+	}
+	
 	function callDownloadGraph(backPage){
 		backPage.downloadGraph();
 	}
@@ -79,6 +83,10 @@ function clicksHandler(event){
 	
 	function callDownloadPatterns(backPage){
 		backPage.downloadPatterns();
+	}
+	
+	function callDownloadIncidents(backPage){
+		backPage.downloadIncidents();
 	}
 	
 	function callDownloadAll(backPage){
@@ -123,7 +131,7 @@ function clicksHandler(event){
 		case 'download':
 		case 'imageDownload':
 			if(downloadFlag == 1){
-				if(confirm("The log files are going to be deleted. Continue?")){
+				if(confirm("After downloading the log file, it's going to be deleted. Continue?")){
 					downloadDisabled();
 					reportDisabled();
 					background.then(downloadLoggerFile, onError);	
@@ -177,6 +185,16 @@ function clicksHandler(event){
 			background.then(callReportPatterns, onError);
 			window.close();
 			break;
+		case 'innerIncidents':
+		case 'imageViewIncidents':
+			console.log(popupButton);
+			allDisabled();
+			recordFlag = 0;
+			downloadFlag = 0;
+			eventFlag = 0;
+			background.then(callReportIncidents, onError);
+			window.close();
+			break;
 		case 'divDownloadGraph':
 		case 'imageDownloadGraph':
 			background.then(callDownloadGraph, onError);
@@ -195,6 +213,11 @@ function clicksHandler(event){
 		case 'divDownloadPatterns':
 		case 'imageDownloadPatterns':
 			background.then(callDownloadPatterns, onError);
+			window.close();
+			break;
+		case 'divDownloadIncidents':
+		case 'imageDownloadIncidents':
+			background.then(callDownloadIncidents, onError);
 			window.close();
 			break;
 		case 'innerDownloadAll':
@@ -323,6 +346,7 @@ function init(backPage){
 	loggerPackReference = backPage.loggerPack;
 	
 	function eventsRecorded(e){
+		//console.log(e);
 		var x = "Events Recorded: " + loggerPackReference.length;	
 		count.innerHTML = x;
 	}

@@ -145,7 +145,7 @@ i {
    background-color: rgba(12, 12, 13, 0.1);
 }
 
-#imageDownloadGraph, #imageDownloadHeatmap, #imageDownloadMousePlot, #imageDownloadPatterns, #imageDownloadAll {
+#imageDownloadGraph, #imageDownloadHeatmap, #imageDownloadMousePlot, #imageDownloadPatterns, #imageDownloadAll, #imageDownloadIncidents {
   position: relative;
   left: 2px;
   top: 2px;

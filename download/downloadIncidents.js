@@ -1,11 +1,11 @@
 function init(backPage){	
-	patterns(backPage);
+	incidents(backPage);
 	
 	var htmlContent = [(new XMLSerializer()).serializeToString(document)];
 	var blob = new Blob(htmlContent, {type: "text/html"});
 	
 	var date = new Date(); 
-	var fileName = "" + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "T" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + "-patterns.html";
+	var fileName = "" + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "T" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + "-incidents.html";
 	
 	saveAs(blob, fileName);
 	

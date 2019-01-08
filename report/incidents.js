@@ -97,17 +97,14 @@ function showHide(e){
 	
 }
 
-function sheets(nodes, i, cardinality){
-	var table = document.getElementById("jobsTable");
+function sheetsIncident(nodes, cardinality){
+	var table = document.getElementById("jobsTableIncident");
 	var content = document.getElementById("content");
 	
-	var k = cardinality;	
-	while(k > i){
+	for(let node of nodes){
 		
-		var node = nodes[k - 1];
+		if(node.sam == "incident"){
 		var links = node.links;
-		
-		console.log(node);
 		
 		var sources = [], targets = [];
 		
@@ -200,7 +197,7 @@ function sheets(nodes, i, cardinality){
 							"\nMean Distance: " + node.meanDistance.toFixed(2) + 
 							"\nMean Time: " + getTimestamp(node.meanTimestamp) +
 							"\nSam: " + node.sam;
-		sheetEoi.headers = 'header2';
+		sheetEoi.headers = 'header2Incident';
 		row.appendChild(sheetEoi);
 		
 		where = node.elementId;
@@ -228,7 +225,7 @@ function sheets(nodes, i, cardinality){
 								"\nMean Distance: " + nodeSource.meanDistance.toFixed(2) + 
 								"\nMean Time: " + getTimestamp(nodeSource.meanTimestamp) +
 								"\nSam: " + nodeSource.sam;
-			sheetSource.headers = 'header1';
+			sheetSource.headers = 'header1Incident';
 			rowSource.appendChild(sheetSource);
 			
 			where = nodeSource.elementId;
@@ -250,7 +247,7 @@ function sheets(nodes, i, cardinality){
 								"\nMean Distance: " + nodeTarget.meanDistance.toFixed(2) + 
 								"\nMean Time: " + getTimestamp(nodeTarget.meanTimestamp) +
 								"\nSam: " + nodeTarget.sam;
-			sheetTarget.headers = 'header3';
+			sheetTarget.headers = 'header3Incident';
 			rowTarget.appendChild(sheetTarget);
 			
 			where = nodeTarget.elementId;
@@ -267,13 +264,13 @@ function sheets(nodes, i, cardinality){
 			array = sources;
 			className = "source";
 			t = ts;
-			header = 'header1';
+			header = 'header1Incident';
 		}
 		else{
 			array = targets;
 			className = "target";
 			t = tt;
-			header = 'header3';
+			header = 'header2Incident';
 		}
 		
 		var nodex;
@@ -308,13 +305,11 @@ function sheets(nodes, i, cardinality){
 		
 			j++;
 		}
-		
-		k--;
+		}
 	}
-
 }
 
-function patterns(backPage){
+function incidents(backPage){
 	var graph = createGraph(backPage.loggerPack);
 	var nodes = graph.nodes;
 	var links = graph.links;
@@ -345,7 +340,7 @@ function patterns(backPage){
 		}		
 	}
 	
-	sheets(nodes, i, cardinality);
-	console.log("patterns");
+	sheetsIncident(nodes, cardinality);
+	console.log("incidents");
 }
  

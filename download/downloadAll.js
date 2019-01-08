@@ -232,6 +232,23 @@ function init(backPage){
 
 	zip.file(dateName + "-patterns.html", blobP);
 	
+	//CONFIGURE FOR INCIDENTS
+	
+	var tableElements = document.getElementById('divTable');
+	var divContent = document.getElementById('content');
+	divContent.removeChild(tableElements);
+	
+	tableElements = document.getElementById('divTableIncident');
+	tableElements.style.display = 'block';
+	
+	//INCIDENTS
+	incidents(backPage);
+	
+	var htmlContent = [(new XMLSerializer()).serializeToString(document)];
+	var blobP = new Blob(htmlContent, {type: "text/html"});
+
+	zip.file(dateName + "-incidents.html", blobP);
+	
 	//CLEAR THE SCREEN
 	var list = document.body.childNodes;
     for (var i = list.length - 1; i >= 0 ;i--){

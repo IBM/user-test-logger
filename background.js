@@ -160,6 +160,15 @@
 		});	
 	}
 	
+	function reportIncidents(){
+		var reportPage = browser.extension.getURL('report/reportIncidents.html');
+		console.log( reportPage );
+	
+		var reportTab = browser.tabs.create({
+			url:reportPage
+		});	
+	}
+	
 	function downloadGraph(){
 		var downloadPage = browser.extension.getURL('download/downloadGraph.html');
 		console.log( downloadPage );
@@ -190,6 +199,16 @@
 	
 	function downloadPatterns(){
 		var downloadPage = browser.extension.getURL('download/downloadPatterns.html');
+		console.log( downloadPage );
+	
+		var downloadTab = browser.tabs.create({
+			url:downloadPage
+		});
+		
+	}
+	
+	function downloadIncidents(){
+		var downloadPage = browser.extension.getURL('download/downloadIncidents.html');
 		console.log( downloadPage );
 	
 		var downloadTab = browser.tabs.create({

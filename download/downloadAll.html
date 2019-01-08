@@ -6,6 +6,7 @@
   <script src="../lib/FileSaver.min.js"></script>
   <script src="../lib/d3.min.js"></script>
   <script src="../lib/jszip.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/tables.css">
 </head>
 
 <style>
@@ -106,12 +107,10 @@ td{
 	    <th id="header2" class="index">Event of Interest</th>
 	    <th id="header3" class="index">Successor</th>
       </tr>
-    </table>
+    </table>	
     </div>
 	
-	<div id="margin" class="margin"></div>
-	
-	<div id="divTableIncident" class="tableContent">
+	<div id="divTableIncident" class="tableContent" style="display: none;">
     <table id="jobsTableIncident" class="table">
       <tr>
 	    <th id="header1Incident" class="index">Predecessor</th>
@@ -127,6 +126,7 @@ td{
   <script src="../report/heatmap.js"></script>
   <script src="../report/graph.js"></script>
   <script src="../report/patterns.js"></script>
+  <script src="../report/incidents.js"></script>
   <script src="downloadAll.js"></script>
 </body>
 </html>

@@ -140,8 +140,11 @@ var methods = {
 			$(window).trigger('pageview');
 		}
 		
-		if(settings.eventAndFlags[event.type] == 1){			
-			var logLine = methods.getLogLine(event);
+		var resize = event.type == 'resize' && event.target.location.toString().search('loggerPopup.html') != -1;
+		var eRecorded = event.target.id == 'count' && (event.type == 'DOMNodeInserted' || event.type == 'DOMNodeRemoved');
+				
+		if(settings.eventAndFlags[event.type] == 1 && !resize && !eRecorded){			
+			var logLine = methods.getLogLine(event);console.log(event);
 			methods.sendLine(logLine);
 		}
 	}
