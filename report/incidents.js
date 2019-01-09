@@ -101,9 +101,31 @@ function sheetsIncident(nodes, cardinality){
 	var table = document.getElementById("jobsTableIncident");
 	var content = document.getElementById("content");
 	
+	nodes.sort(function(a, b){return a.tabId - b.tabId || b.occurrences - a.occurrences;});
+		
+	var lastTab = -1;
+	
 	for(let node of nodes){
 		
 		if(node.sam == "incident"){
+			
+		var tab = node.tabId;
+		
+		if(tab != lastTab){
+			rowTab = document.createElement("tr");
+			table.appendChild(rowTab);
+			tabH = document.createElement("th");
+			tabH.className = "tabHeader";
+			tabH.colSpan = 3;
+			tabH.id = 'tab' + tab;
+			
+			tabD = document.createTextNode('Tab ' + tab);
+			tabH.appendChild(tabD);
+			rowTab.appendChild(tabH);
+			
+			lastTab = tab;
+		}	
+		
 		var links = node.links;
 		
 		var sources = [], targets = [];
@@ -197,7 +219,7 @@ function sheetsIncident(nodes, cardinality){
 							"\nMean Distance: " + node.meanDistance.toFixed(2) + 
 							"\nMean Time: " + getTimestamp(node.meanTimestamp) +
 							"\nSam: " + node.sam;
-		sheetEoi.headers = 'header2Incident';
+		sheetEoi.headers = 'header2Incident tab' + tab;
 		row.appendChild(sheetEoi);
 		
 		where = node.elementId;
@@ -225,7 +247,7 @@ function sheetsIncident(nodes, cardinality){
 								"\nMean Distance: " + nodeSource.meanDistance.toFixed(2) + 
 								"\nMean Time: " + getTimestamp(nodeSource.meanTimestamp) +
 								"\nSam: " + nodeSource.sam;
-			sheetSource.headers = 'header1Incident';
+			sheetSource.headers = 'header1Incident tab' + tab;
 			rowSource.appendChild(sheetSource);
 			
 			where = nodeSource.elementId;
@@ -247,7 +269,7 @@ function sheetsIncident(nodes, cardinality){
 								"\nMean Distance: " + nodeTarget.meanDistance.toFixed(2) + 
 								"\nMean Time: " + getTimestamp(nodeTarget.meanTimestamp) +
 								"\nSam: " + nodeTarget.sam;
-			sheetTarget.headers = 'header3Incident';
+			sheetTarget.headers = 'header3Incident tab' + tab;
 			rowTarget.appendChild(sheetTarget);
 			
 			where = nodeTarget.elementId;
@@ -293,7 +315,7 @@ function sheetsIncident(nodes, cardinality){
 							"\nMean Time: " + getTimestamp(nodex.meanTimestamp) +
 							"\nSam: " + nodex.sam;
 			sheet.width = "100%";
-			sheet.headers = header;
+			sheet.headers = header +  ' tab' + tab;
 			row.appendChild(sheet);
 			
 			where = nodex.elementId;

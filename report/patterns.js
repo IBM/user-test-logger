@@ -101,13 +101,44 @@ function sheets(nodes, i, cardinality){
 	var table = document.getElementById("jobsTable");
 	var content = document.getElementById("content");
 	
-	var k = cardinality;	
-	while(k > i){
+	
+	nodes = nodes.slice(i, cardinality);
+	nodes.sort(function(a, b){return a.tabId - b.tabId || b.occurrences - a.occurrences;});
+	
+	var lastTab = nodes[0].tabId;
+	
+	var rowTab = document.createElement("tr");
+	table.appendChild(rowTab);
+	var	tabH = document.createElement("th");
+	tabH.className = "tabHeader";
+	tabH.colSpan = 3;
+	tabH.id = 'tab' + lastTab;
+	
+	var tabD = document.createTextNode('Tab ' + lastTab);
+	tabH.appendChild(tabD);
+	
+	rowTab.appendChild(tabH);
+	
+	for(let node of nodes){
 		
-		var node = nodes[k - 1];
+		var tab = node.tabId;
+		
+		if(tab != lastTab){
+			rowTab = document.createElement("tr");
+			table.appendChild(rowTab);
+			tabH = document.createElement("th");
+			tabH.className = "tabHeader";
+			tabH.colSpan = 3;
+			tabH.id = 'tab' + tab;
+			
+			tabD = document.createTextNode('Tab ' + tab);
+			tabH.appendChild(tabD);
+			rowTab.appendChild(tabH);
+			
+			lastTab = tab;
+		}		
+		
 		var links = node.links;
-		
-		console.log(node);
 		
 		var sources = [], targets = [];
 		
@@ -200,7 +231,7 @@ function sheets(nodes, i, cardinality){
 							"\nMean Distance: " + node.meanDistance.toFixed(2) + 
 							"\nMean Time: " + getTimestamp(node.meanTimestamp) +
 							"\nSam: " + node.sam;
-		sheetEoi.headers = 'header2';
+		sheetEoi.headers = 'header2 tab' + tab;
 		row.appendChild(sheetEoi);
 		
 		where = node.elementId;
@@ -228,7 +259,7 @@ function sheets(nodes, i, cardinality){
 								"\nMean Distance: " + nodeSource.meanDistance.toFixed(2) + 
 								"\nMean Time: " + getTimestamp(nodeSource.meanTimestamp) +
 								"\nSam: " + nodeSource.sam;
-			sheetSource.headers = 'header1';
+			sheetSource.headers = 'header1 tab' + tab;
 			rowSource.appendChild(sheetSource);
 			
 			where = nodeSource.elementId;
@@ -250,7 +281,7 @@ function sheets(nodes, i, cardinality){
 								"\nMean Distance: " + nodeTarget.meanDistance.toFixed(2) + 
 								"\nMean Time: " + getTimestamp(nodeTarget.meanTimestamp) +
 								"\nSam: " + nodeTarget.sam;
-			sheetTarget.headers = 'header3';
+			sheetTarget.headers = 'header3 tab' + tab;
 			rowTarget.appendChild(sheetTarget);
 			
 			where = nodeTarget.elementId;
@@ -296,7 +327,7 @@ function sheets(nodes, i, cardinality){
 							"\nMean Time: " + getTimestamp(nodex.meanTimestamp) +
 							"\nSam: " + nodex.sam;
 			sheet.width = "100%";
-			sheet.headers = header;
+			sheet.headers = header +  ' tab' + tab;
 			row.appendChild(sheet);
 			
 			where = nodex.elementId;
@@ -309,7 +340,6 @@ function sheets(nodes, i, cardinality){
 			j++;
 		}
 		
-		k--;
 	}
 
 }

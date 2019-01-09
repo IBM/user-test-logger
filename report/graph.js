@@ -98,7 +98,7 @@ function createGraph(loggerPack){
 	start.occurrences = 1;
 	start.eventName = 'start';
 	start.path = '-';
-	start.tabId = '-';
+	start.tabId = '-1';
 	start.elementId = '-';
 	start.adjList = [];
 		
@@ -142,7 +142,7 @@ function createGraph(loggerPack){
 	end.occurrences = 1;
 	end.eventName = 'end';
 	end.path = '-';
-	end.tabId = '-';
+	end.tabId = '-1';
 	end.elementId = '-';
 	end.adjList = [];
 	
