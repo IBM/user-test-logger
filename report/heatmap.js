@@ -146,6 +146,9 @@ function heatMap(loggerPack){
 		return fixationArray;
 	}
 	
+	var wLastPageView = 0;
+	var hLastPageView = 0;
+	
 	for(let line of log){		
 		if(line[3] == 'pageview' && line[7].indexOf('loggerPopup.html') == -1){
 			
@@ -155,6 +158,9 @@ function heatMap(loggerPack){
 			index = coord.indexOf('x');
 			wTemp = Number( coord.slice(0, index) );
 			hTemp = Number( coord.slice(index + 1, line[7].length) );
+			
+			wLastPageView = wTemp;	
+			hLastPageView = hTemp;
 
 			if(wTemp > wLog){
 				wLog = wTemp;
@@ -164,6 +170,38 @@ function heatMap(loggerPack){
 				hLog = hTemp;
 			}
 			
+		}
+		else if(line[3] == 'resize'){
+			
+			coord = line[7];
+			index = coord.indexOf('x');
+			wTemp = Number( coord.slice(0, index) );
+			hTemp = Number( coord.slice(index + 1, coord.length) );
+			
+			wLastPageView = wTemp;
+			hLastPageView = hTemp;		
+			
+			if(wTemp > wLog){
+				wLog = wTemp;
+			}
+			
+			if(hTemp > hLog){
+				hLog = hTemp;
+			}
+		}
+		else if(line[3] == 'scroll'){
+			coord = line[7];
+			index = coord.indexOf('x');
+			wTemp = Number( coord.slice(0, index) );
+			hTemp = Number( coord.slice(index + 1, coord.length) );
+			
+			if(wLastPageView + wTemp > wLog){
+				wLog = wLastPageView + wTemp;
+			}
+			
+			if(hLastPageView + hTemp > hLog){
+				hLog = hLastPageView + hTemp;
+			}
 		}
 		
 	}
@@ -180,7 +218,11 @@ function heatMap(loggerPack){
 		if(name == 'mousemove' && pluginTab != line[0]){
 			
 			index = line[7].indexOf('|');
-			coord = line[7].slice(index + 1, line[7].length);
+			//window coordinates
+			//coord = line[7].slice(index + 1, line[7].length);
+			
+			//page coordinates
+			coord = line[7].slice(0, index);
 			
 			index = coord.indexOf('x');
 			object = {

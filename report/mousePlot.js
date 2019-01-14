@@ -50,6 +50,10 @@ function mousePlot(loggerPack){
 			index = coord.indexOf('x');
 			wTemp = Number( coord.slice(0, index) );
 			hTemp = Number( coord.slice(index + 1, coord.length) );
+			
+			wLastPageView = wTemp;
+			hLastPageView = hTemp;			
+			
 			if(wTemp > wLog){
 				wLog = wTemp;
 			}

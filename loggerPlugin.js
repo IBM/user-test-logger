@@ -96,10 +96,10 @@ var methods = {
 				extra = "" + $(window).width() + "x" + $(window).height();
 				break;
 			case "mouseout":
-				/*var f = event.relatedTarget || event.toElement;
+				var f = event.relatedTarget || event.toElement;
 				if (!f || f.nodeName == "HTML") {
 					extra = 'leftWindow';
-				}*/
+				}
 				break;
 			case "scroll":
 				console.log('scroll');
