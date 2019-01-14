@@ -5,7 +5,7 @@ function mousePlot(loggerPack){
 	var hLog = 0;
 	var wTemp = 0;
 	var hTemp = 0;
-	var off = 100;
+	var off = 0;
 	
 	var log = loggerPack;
 	var mouseTrack = [];
@@ -18,6 +18,9 @@ function mousePlot(loggerPack){
 	
 	var coord = '';
 	
+	var wLastPageView = 0;
+	var hLastPageView = 0;
+	
 	for(let line of log){
 		
 		if(line[3] == 'pageview' && line[7].indexOf('loggerPopup.html') == -1){
@@ -28,6 +31,10 @@ function mousePlot(loggerPack){
 			index = coord.indexOf('x');
 			wTemp = Number( coord.slice(0, index) );
 			hTemp = Number( coord.slice(index + 1, line[7].length) );
+			
+			wLastPageView = wTemp;	
+			hLastPageView = hTemp;
+			
 			if(wTemp > wLog){
 				wLog = wTemp;
 			}
@@ -49,6 +56,20 @@ function mousePlot(loggerPack){
 			
 			if(hTemp > hLog){
 				hLog = hTemp;
+			}
+		}
+		else if(line[3] == 'scroll'){
+			coord = line[7];
+			index = coord.indexOf('x');
+			wTemp = Number( coord.slice(0, index) );
+			hTemp = Number( coord.slice(index + 1, coord.length) );
+			
+			if(wLastPageView + wTemp > wLog){
+				wLog = wLastPageView + wTemp;
+			}
+			
+			if(hLastPageView + hTemp > hLog){
+				hLog = hLastPageView + hTemp;
 			}
 		}
 		
@@ -79,7 +100,11 @@ function mousePlot(loggerPack){
 		if(name == 'mousemove' && pluginTab != line[0]){
 			
 			index = line[7].indexOf('|');
-			coord = line[7].slice(index + 1, line[7].length);
+			//window coordinates
+			//coord = line[7].slice(index + 1, line[7].length);
+			
+			//page coordinates
+			coord = line[7].slice(0, index);
 			
 			index = coord.indexOf('x');
 			
@@ -132,7 +157,11 @@ function mousePlot(loggerPack){
 		if( ( line[3] == 'click' || line[3] == 'dblclick') && pluginTab != line[0]){
 			
 			index = line[7].indexOf('|');
+			//window coordinates			
 			coord = line[7].slice(index + 1, line[7].length);
+			
+			//page coordinates
+			coord = line[7].slice(0, index);
 			
 			index = coord.indexOf('x');
 			object = {

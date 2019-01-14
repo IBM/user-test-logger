@@ -104,13 +104,14 @@ var methods = {
 			case "scroll":
 				console.log('scroll');
 				var place = $(event.target);
-				extra = place.scrollTop().toFixed(0);
+				extra = place.scrollLeft().toFixed(0) + 'x' + place.scrollTop().toFixed(0);
 				break;
 			case "click":
 			case "dblclick":
 			case "mousemove":
 			case "submit":
 				extra = event.pageX + "x" + event.pageY + "|" + event.screenX + "x" + event.screenY;//CHANGED
+				console.log(extra);
 				break;
 			default:
 				extra = settings.nullMarker;
