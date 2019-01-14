@@ -101,6 +101,11 @@ var methods = {
 					extra = 'leftWindow';
 				}*/
 				break;
+			case "scroll":
+				console.log('scroll');
+				var place = $(event.target);
+				extra = place.scrollTop().toFixed(0);
+				break;
 			case "click":
 			case "dblclick":
 			case "mousemove":
@@ -144,7 +149,7 @@ var methods = {
 		var eRecorded = event.target.id == 'count' && (event.type == 'DOMNodeInserted' || event.type == 'DOMNodeRemoved');
 				
 		if(settings.eventAndFlags[event.type] == 1 && !resize && !eRecorded){			
-			var logLine = methods.getLogLine(event);console.log(event);
+			var logLine = methods.getLogLine(event);
 			methods.sendLine(logLine);
 		}
 	}
