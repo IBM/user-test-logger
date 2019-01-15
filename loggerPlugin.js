@@ -82,7 +82,8 @@ var methods = {
 
 		switch (event.type) {
 			case "pageview": //DOUBT
-				extra = location.href + "|" + $(window).width() + "x" + $(window).height(); //DOUBT $ DOUBT
+				//extra = location.href + "|" + $(window).width() + "x" + $(window).height(); //DOUBT $ DOUBT
+				extra = location.href + "|" + $(document).width() + "x" + $(document).height();
 				extra.replace(settings.columnMarker, settings.escapeMarker + settings.columnMarker, "g").replace(settings.lineMarker, settings.escapeMarker + settings.lineMarker, "g");
 				break;
 			case "geolocationchange":

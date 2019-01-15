@@ -189,6 +189,8 @@ function heatMap(loggerPack){
 				hLog = hTemp;
 			}
 		}
+		//only when using window dimensions
+		/*
 		else if(line[3] == 'scroll'){
 			coord = line[7];
 			index = coord.indexOf('x');
@@ -202,7 +204,7 @@ function heatMap(loggerPack){
 			if(hLastPageView + hTemp > hLog){
 				hLog = hLastPageView + hTemp;
 			}
-		}
+		}*/
 		
 	}
 	

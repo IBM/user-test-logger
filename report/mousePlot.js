@@ -62,6 +62,8 @@ function mousePlot(loggerPack){
 				hLog = hTemp;
 			}
 		}
+		//only when using window dimensions
+		/*
 		else if(line[3] == 'scroll'){
 			coord = line[7];
 			index = coord.indexOf('x');
@@ -76,6 +78,7 @@ function mousePlot(loggerPack){
 				hLog = hLastPageView + hTemp;
 			}
 		}
+		*/
 		
 	}
 	
@@ -162,7 +165,7 @@ function mousePlot(loggerPack){
 			
 			index = line[7].indexOf('|');
 			//window coordinates			
-			coord = line[7].slice(index + 1, line[7].length);
+			//coord = line[7].slice(index + 1, line[7].length);
 			
 			//page coordinates
 			coord = line[7].slice(0, index);
