@@ -351,8 +351,9 @@ function heatMap(loggerPack){
 		
 	}
 				  
-	var scale = d3.scaleLinear().domain([max*0.01, max*0.5, max]).range(["green", "yellow", "red"]);			  
-	
+	//var scale = d3.scaleLinear().domain([max*0.1, max*0.5, max]).range(["white", "blue", "purple"]);			  
+	var scale = d3.scaleLinear().domain([max*0.05, max*0.1, max*0.2, max*0.55, max]).range(["white", "lightgreen", "green", "yellow", "red"]);
+console.log(max*0.001);	
 	
 	var rects = g.selectAll('rect')
 				   .data(points)
