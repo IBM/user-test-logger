@@ -92,6 +92,10 @@ function clicksHandler(event){
 	function callDownloadAll(backPage){
 		backPage.downloadAll();
 	}
+	
+	function callUploadSetup(backPage){
+		backPage.uploadSetup();
+	}
 		
 	//HANDLING THE CLICKS
 	var popupButton = event.target.id;
@@ -239,6 +243,9 @@ function clicksHandler(event){
 				contextShift("popup-content-main", "popup-content-events");
 			}
 			break;
+		case 'uploadSetup':
+			background.then(callUploadSetup, onError);
+			break;
 		case 'about':
 		case 'imageAbout':
 			contextShift("popup-content-main", "popup-content-about");
@@ -334,6 +341,10 @@ function contextShift(current, next){
 	currentList.style.display = 'none';
 	nextList.style.display = 'block';
 				
+}
+
+function dropHandler(ev) {
+	console.log('dropped');
 }
 
 //UPDATING THE CHECKBOXES AND RECORDING STATUS

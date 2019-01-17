@@ -227,4 +227,13 @@
 		
 	}
 	
+	function uploadSetup(){
+		var page = browser.extension.getURL('upload/setup.html');
+		console.log( page );
+	
+		var tab = browser.tabs.create({
+			url:page
+		});
+	}
+	
 	browser.runtime.onConnect.addListener(connected);

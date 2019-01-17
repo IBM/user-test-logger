@@ -237,7 +237,7 @@ function heatMap(loggerPack){
 		previousTime = line[2];
 		
 	}
-	var off = 100;
+	var off = 0;
 	var idtFixations = idt(mouseTrack, 10, 50);
 	for(let a of idtFixations){
 		a.y -= off;
@@ -327,11 +327,13 @@ function heatMap(loggerPack){
 				  
 	for(let i = 0; i < mapWidth; i++){
 		for(let j = 0; j < mapHeight; j++){
-			points.push({
-				'x': map[i][j].x,
-				'y': map[i][j].y,
-				'fixation': map[i][j].fixation
-			});
+			if(map[i][j].fixation > 1){
+				points.push({
+					'x': map[i][j].x,
+					'y': map[i][j].y,
+					'fixation': map[i][j].fixation
+				});
+			}
 		}
 	}
 	
@@ -350,6 +352,7 @@ function heatMap(loggerPack){
 	}
 				  
 	var scale = d3.scaleLinear().domain([max*0.01, max*0.5, max]).range(["green", "yellow", "red"]);			  
+	
 	
 	var rects = g.selectAll('rect')
 				   .data(points)
@@ -370,5 +373,21 @@ function heatMap(loggerPack){
 						if( d.fixation > 0.05 ){ return 1.0 ; }
 						return 0 ;
 				   });
+				   
+				   
+	/*
+	var heatmap = h337.create({
+        container: document.getElementById('heatmapContainer'),
+        maxOpacity: .6,
+        radius: 20,
+        blur: .10//,
+        // backgroundColor with alpha so you can see through it
+        //backgroundColor: 'rgba(0, 0, 58, 0.96)'
+    });
+	
+	for(let point of points){
+			heatmap.addData({ x: point.x, y: point.y, value: point.fixation });
+		
+	}*/
 									
 }
