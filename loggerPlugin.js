@@ -112,7 +112,6 @@ var methods = {
 			case "mousemove":
 			case "submit":
 				extra = event.pageX + "x" + event.pageY + "|" + event.screenX + "x" + event.screenY;//CHANGED
-				console.log(extra);
 				break;
 			default:
 				extra = settings.nullMarker;

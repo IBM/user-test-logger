@@ -30,6 +30,8 @@ function heatMap(loggerPack){
 		var obj = {};
 		var j = 0;
 		var dir2 = 0;
+		var pageView = '';
+		var tab = 0;
 		
 		var length = track.length;
 		var esq = 0
@@ -112,6 +114,8 @@ function heatMap(loggerPack){
 								xCentroid += Number(obj.x);
 								yCentroid += Number(obj.y);
 								time += obj.fixation;
+								pageView = obj.pageview;
+								tab = obj.tab;
 						
 							}
 							else{
@@ -129,7 +133,9 @@ function heatMap(loggerPack){
 					fixation = {
 						x: xCentroid/(dir+1 - esq),
 						y: yCentroid/(dir+1 - esq),
-						fixation: time
+						fixation: time,
+						pageview: pageView,
+						tab: tab
 					};
 					dir++;
 					esq = dir;
@@ -146,6 +152,7 @@ function heatMap(loggerPack){
 		return fixationArray;
 	}
 	
+	var lastPageView = {};
 	var wLastPageView = 0;
 	var hLastPageView = 0;
 	
@@ -216,6 +223,10 @@ function heatMap(loggerPack){
 		if(name == 'pageview' && popup != -1){
 			pluginTab = line[0];
 		}
+		else if(name == 'pageview'){
+			index = line[7].indexOf('|');
+			lastPageView[line[0]] = line[7].slice(0, index);
+		}
 		
 		if(name == 'mousemove' && pluginTab != line[0]){
 			
@@ -230,7 +241,9 @@ function heatMap(loggerPack){
 			object = {
 				'x': coord.slice(0,index),
 				'y': coord.slice(index + 1, coord.length), 
-				'fixation': currentTime - previousTime
+				'fixation': currentTime - previousTime,
+				'pageview': lastPageView[line[0]],
+				'tab': line[0]
 			};
 			mouseTrack.push(object);
 		}
@@ -242,7 +255,7 @@ function heatMap(loggerPack){
 	for(let a of idtFixations){
 		a.y -= off;
 	}
-	
+		
 	var mousePath = d3.line()
 				 .x(function(d){ return d.x; })
 				 .y(function(d){ return d.y; });
@@ -320,7 +333,10 @@ function heatMap(loggerPack){
 		
 		for( i = -1 * radius; i <= radius; i++ ){
 			for( j = -1 * radius; j <= radius; j++ ){
-				try{ map[iIndex+i][jIndex+j].fixation += 1 * mask[i+radius][j+radius] / mask[Math.round(radius/2)][Math.round(radius/2)]; }catch(e){}	
+				try{
+					map[iIndex+i][jIndex+j].fixation += 1 * mask[i+radius][j+radius] / mask[Math.round(radius/2)][Math.round(radius/2)]; 
+					
+				}catch(e){}	
 			}
 		}
 	}
@@ -353,7 +369,6 @@ function heatMap(loggerPack){
 				  
 	//var scale = d3.scaleLinear().domain([max*0.1, max*0.5, max]).range(["white", "blue", "purple"]);			  
 	var scale = d3.scaleLinear().domain([max*0.05, max*0.1, max*0.2, max*0.55, max]).range(["white", "lightgreen", "green", "yellow", "red"]);
-console.log(max*0.001);	
 	
 	var rects = g.selectAll('rect')
 				   .data(points)
