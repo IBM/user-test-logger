@@ -20,7 +20,7 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["lib/jquery-3.2.1.min.js", "loggerPlugin.js"]
+      "js": ["lib/jquery-3.2.1.min.js", "lib/html2canvas.min.js", "loggerPlugin.js"]
     }
   ],
   
