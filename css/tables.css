@@ -1,5 +1,6 @@
 .content {
   height: 100%;
+  font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;
 }
 
 .tableContent {
@@ -47,6 +48,9 @@ td{
   text-overflow: ellipsis;
 }
 
+td:hover {
+  cursor: pointer;
+}
 
 .source, .target, .eoi {
   padding: 12px 24px 12px 24px;

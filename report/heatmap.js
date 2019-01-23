@@ -583,13 +583,6 @@ function heatMap(loggerPack){
 		
 	}*/
 	
-	$.ajax({ url: 'https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp', success: function(data) { 
-	console.log(data);
-		html2canvas(data).then(function(canvas) {
-			document.body.appendChild(canvas);
-		}); 
-	} });
-
 									
 }
 

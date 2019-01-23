@@ -144,6 +144,15 @@ var methods = {
 		if(!seen){
 			seen = 1;
 			$(window).trigger('pageview');
+			
+			//console.log(document.body);	
+			
+			html2canvas(document.body, {
+				onrendered: function(canvas) {
+					document.body.appendChild(canvas);
+				},
+			});
+			
 		}
 		
 		var resize = event.type == 'resize' && event.target.location.toString().search('loggerPopup.html') != -1;
@@ -194,3 +203,4 @@ function messageReceiver(message){
 
 var myPort = browser.runtime.connect({name:"port-from-cs"}); //NAMEUNIQUELY
 myPort.onMessage.addListener(messageReceiver);
+
