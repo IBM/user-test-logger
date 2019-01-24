@@ -453,6 +453,8 @@ function heatMap(loggerPack){
 		header1.style.textAlign = "center";
 		header1.style.fontWeight = "bold";
 		header1.style.padding = "10px 5px 10px 5px";
+		header1.style.textAlign = "left";
+		header1.style.fontFamily = "Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif";
 		
 		var textNode = document.createTextNode('Tab ' + tab);
 		header1.appendChild(textNode);
@@ -494,6 +496,8 @@ function heatMap(loggerPack){
 			header1.style.textAlign = "center";
 			//header1.style.fontWeight = "bold";
 			header1.style.padding = "10px 5px 10px 5px";
+			header1.style.textAlign = "left";
+			header1.style.fontFamily = "Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif";
 			
 			var arrow = document.createElement("span");
 			arrow.className = "arrow-up";
