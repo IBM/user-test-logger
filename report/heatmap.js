@@ -567,8 +567,6 @@ function heatMap(loggerPack){
 	$(".container-pageview").click(function(e) {
 			$(this).next(".heatmap-d3").stop().toggle();
 			$(this).find(".arrow-up, .arrow-down").toggle();
-			console.log('aa');
-			console.log(e);
 			});
 	
 				   

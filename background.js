@@ -2,6 +2,7 @@
 	var webPagesIds = 0;
 	var connections = 0;
     var loggerPack = [];
+	var blobs = {};
 	var portsFromCS = {};
 	var message = {
 			string: "",
@@ -50,7 +51,15 @@
 			portsFromCS[currentPort].postMessage(message);
 		
 			portsFromCS[currentPort].onMessage.addListener(function(m) {
-				loggerPack.push(m.line);
+				if(m.blob == undefined){
+					loggerPack.push(m.line);
+				}
+				else{
+					if(blobs[m.id] == undefined){
+						blobs[m.id] = {};
+					}
+					blobs[m.id][m.pageview] = m.blob;
+				}
 			});
 		}
 		else if(p.name == 'port-from-download'){

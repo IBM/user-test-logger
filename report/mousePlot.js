@@ -1,4 +1,4 @@
-function mousePlot(loggerPack){
+function mousePlot(loggerPack, blobs){
 	var w = document.body.clientWidth;
 	var h = document.body.clientHeight;
 	var wLog = 0;
@@ -297,8 +297,29 @@ function mousePlot(loggerPack){
 			header1.appendChild(textNode);
 			container.appendChild(header1);			
 			body.appendChild(container);
+			
+			var divV = document.createElement('div');	
+			divV.className = 'divVisualization';
+			divV.id = tab + pageview;
+			divV.style.display = 'none';
+			body.appendChild(divV);
+			
+			var x = document.createElement('iframe');			
+		
+			var bb = blobs[tab][pageview];
+		
+			x.src = window.URL.createObjectURL(bb);
+			x.width = wdimensions[tab][pageview];
+			x.height = hdimensions[tab][pageview];
+			x.style.position = 'relative';
+			x.style.zIndex = '-100';
+			x.className = 'iframe';
+			divV.appendChild(x);
+			
+			console.log(divV);
+			var d3id = '#' + tab + pageview;
 						 
-			var svg = d3.select('body')
+			var svg = d3.select(divV)
 						.append('svg')
 						.attr('width',  wdimensions[tab][pageview])
 						.attr('height',  hdimensions[tab][pageview])
@@ -317,7 +338,7 @@ function mousePlot(loggerPack){
 			 			 
 			}	
 			
-			var g = svg.append('g');
+			var g = svg.append('g'); 
 	
 			var count = 0;
 			
@@ -379,18 +400,19 @@ function mousePlot(loggerPack){
 						   .attr('fill', 'white')
 						   .attr('font-family', 'sans-serif');
 
-			svg.attr('class', 'heatmap-d3');
-			svg.style('display', 'none');
+			svg.attr('class', 'mouseplot-d3');
+			svg.style('position', 'absolute');
+			svg.style('left', '0px');			
+			
+			console.log('go');
 			
 		}
 		
 	}
 	
 	$(".container-pageview").click(function(e) {
-			$(this).next(".heatmap-d3").stop().toggle();
+			$(this).next(".divVisualization").stop().toggle();
 			$(this).find(".arrow-up, .arrow-down").toggle();
-			console.log('aa');
-			console.log(e);
 			});
 	
 	

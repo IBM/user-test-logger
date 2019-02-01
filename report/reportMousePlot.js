@@ -1,5 +1,5 @@
 function init(backPage){	
-	mousePlot(backPage.loggerPack);
+	mousePlot(backPage.loggerPack, backPage.blobs);
 }
 
 var background = browser.runtime.getBackgroundPage();
