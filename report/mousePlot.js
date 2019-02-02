@@ -298,6 +298,8 @@ function mousePlot(loggerPack, blobs){
 			container.appendChild(header1);			
 			body.appendChild(container);
 			
+			//visualization with screenshot
+			
 			var divV = document.createElement('div');	
 			divV.className = 'divVisualization';
 			divV.id = tab + pageview;
@@ -315,9 +317,7 @@ function mousePlot(loggerPack, blobs){
 			x.style.zIndex = '-100';
 			x.className = 'iframe';
 			divV.appendChild(x);
-			
-			console.log(divV);
-			var d3id = '#' + tab + pageview;
+
 						 
 			var svg = d3.select(divV)
 						.append('svg')
@@ -402,9 +402,7 @@ function mousePlot(loggerPack, blobs){
 
 			svg.attr('class', 'mouseplot-d3');
 			svg.style('position', 'absolute');
-			svg.style('left', '0px');			
-			
-			console.log('go');
+			svg.style('left', '0px');	
 			
 		}
 		

@@ -1,4 +1,4 @@
-function heatMap(loggerPack){
+function heatMap(loggerPack, blobs){
 	var w = document.body.clientWidth;
 	var h = document.body.clientHeight;
 	
@@ -523,11 +523,32 @@ function heatMap(loggerPack){
 			header1.appendChild(textNode);
 			container.appendChild(header1);			
 			body.appendChild(container);
+			
+			//visualization with screenshot
+			
+			var divV = document.createElement('div');	
+			divV.className = 'divVisualization';
+			divV.id = tab + pageview;
+			divV.style.display = 'none';
+			body.appendChild(divV);
+			
+			var x = document.createElement('iframe');			
+		
+			var bb = blobs[tab][pageview];
+		
+			x.src = window.URL.createObjectURL(bb);
+			x.width = wdimensions[tab][pageview];
+			x.height = hdimensions[tab][pageview];
+			x.style.position = 'relative';
+			x.style.zIndex = '-100';
+			x.className = 'iframe';
+			divV.appendChild(x);
 					 
-			var svg = d3.select('body')
+			var svg = d3.select(divV)
 					.append('svg')
 					.attr('width', wdimensions[tab][pageview])
-					.attr('height', hdimensions[tab][pageview]);
+					.attr('height', hdimensions[tab][pageview])
+					.attr('opacity', 0.5);
 							
 			var g = svg.append('g');
 
@@ -555,7 +576,8 @@ function heatMap(loggerPack){
 						 });
 						 
 			svg.attr('class', 'heatmap-d3');
-			svg.style('display', 'none');
+			svg.style('position', 'absolute');
+			svg.style('left', '0px');
 				
 				   
 		}
@@ -565,7 +587,7 @@ function heatMap(loggerPack){
 	}
 	
 	$(".container-pageview").click(function(e) {
-			$(this).next(".heatmap-d3").stop().toggle();
+			$(this).next(".divVisualization").stop().toggle();
 			$(this).find(".arrow-up, .arrow-down").toggle();
 			});
 	

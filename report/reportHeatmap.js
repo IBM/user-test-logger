@@ -1,5 +1,5 @@
 function init(backPage){
-	heatMap(backPage.loggerPack);
+	heatMap(backPage.loggerPack, backPage.blobs);
 }
 
 var background = browser.runtime.getBackgroundPage();
