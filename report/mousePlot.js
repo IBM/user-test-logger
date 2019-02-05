@@ -374,5 +374,3 @@ function mousePlot(loggerPack, blobs){
 	
 	
 }
-
-

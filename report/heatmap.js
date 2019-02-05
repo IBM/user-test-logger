@@ -524,5 +524,3 @@ function heatMap(loggerPack, blobs){
 	
 				   									
 }
-
-
