@@ -235,7 +235,7 @@ function mousePlot(loggerPack, blobs){
 			var arrow = document.createElement("span");
 			arrow.className = "arrow-up";
 			
-			arrow.innerHTML = "&#9650;";
+			arrow.innerHTML = "&#9660;";
 			arrow.style.fontSize = "0.8em";
 			arrow.style.marginRight = "2px";
 			arrow.style.cursor = "pointer";
@@ -245,7 +245,7 @@ function mousePlot(loggerPack, blobs){
 			arrow = document.createElement("span");
 			arrow.className = "arrow-down";
 			
-			arrow.innerHTML = "&#9660;";
+			arrow.innerHTML = "&#9654;";
 			arrow.style.fontSize = "0.8em";
 			arrow.style.marginRight = "2px";
 			arrow.style.cursor = "pointer";
