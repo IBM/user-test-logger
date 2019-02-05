@@ -165,47 +165,6 @@ function mousePlot(loggerPack, blobs){
 		
 	}
 	
-
-	/*for(let line of log){
-		
-		currentTime = line[2];
-		name = line[3];
-		popup = line[7].indexOf('loggerPopup.html');
-		
-		if(name == 'pageview' && popup != -1){
-			pluginTab = line[0];
-		}
-		
-		if(name == 'mouseout' && pluginTab != line[0] && line[7] == 'leftWindow'){
-			
-			tracks++;
-			mouseTrack[tracks] = [];
-			console.log(tracks);
-		}
-		
-		if(name == 'mousemove' && pluginTab != line[0]){
-			
-			index = line[7].indexOf('|');
-			//window coordinates
-			//coord = line[7].slice(index + 1, line[7].length);
-			
-			//page coordinates
-			coord = line[7].slice(0, index);
-			
-			index = coord.indexOf('x');
-			
-			object = {
-				'x': Number( coord.slice(0,index) ),
-				'y': Number( coord.slice(index + 1, coord.length) ) - off, 
-				'fixation': currentTime - previousTime
-			};
-			mouseTrack[tracks].push(object);
-			
-		}
-		previousTime = line[2];
-		
-	}*/
-	
 	for(let tab in maps){
 		for(let pageview in maps[tab]){
 			

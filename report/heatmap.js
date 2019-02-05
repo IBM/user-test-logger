@@ -244,70 +244,6 @@ function heatMap(loggerPack, blobs){
 		
 	}	
 	
-	
-	
-	/*
-	for(let line of log){		
-		if(line[3] == 'pageview' && line[7].indexOf('loggerPopup.html') == -1){
-			
-			index = line[7].indexOf('|');
-			coord = line[7].slice(index + 1, line[7].length);
-			
-			index = coord.indexOf('x');
-			wTemp = Number( coord.slice(0, index) );
-			hTemp = Number( coord.slice(index + 1, line[7].length) );
-			
-			wLastPageView = wTemp;	
-			hLastPageView = hTemp;
-
-			if(wTemp > wLog){
-				wLog = wTemp;
-			}
-			
-			if(hTemp > hLog){
-				hLog = hTemp;
-			}
-			
-		}
-		else if(line[3] == 'resize'){
-			
-			coord = line[7];
-			index = coord.indexOf('x');
-			wTemp = Number( coord.slice(0, index) );
-			hTemp = Number( coord.slice(index + 1, coord.length) );
-			
-			wLastPageView = wTemp;
-			hLastPageView = hTemp;		
-			
-			if(wTemp > wLog){
-				wLog = wTemp;
-			}
-			
-			if(hTemp > hLog){
-				hLog = hTemp;
-			}
-		}
-		//only when using window dimensions
-		/*
-		else if(line[3] == 'scroll'){
-			coord = line[7];
-			index = coord.indexOf('x');
-			wTemp = Number( coord.slice(0, index) );
-			hTemp = Number( coord.slice(index + 1, coord.length) );
-			
-			if(wLastPageView + wTemp > wLog){
-				wLog = wLastPageView + wTemp;
-			}
-			
-			if(hLastPageView + hTemp > hLog){
-				hLog = hLastPageView + hTemp;
-			}
-		}*/
-		
-	//}
-	
-	console.log(maps);
-	
 	var off = 0;
 	var idtFixations = idt(mouseTrack, 10, 50);
 	for(let a of idtFixations){
@@ -318,9 +254,6 @@ function heatMap(loggerPack, blobs){
 	var red = 0;
 	
 	var square = 10;
-	//var mapWidth = Math.floor(wLog/square);
-	//var mapHeight = Math.floor(hLog/square);
-
 	
 	//separating the maps by tab and pageview
 	for(let tab in maps){
@@ -580,9 +513,7 @@ function heatMap(loggerPack, blobs){
 			svg.style('left', '0px');
 				
 				   
-		}
-		
-		
+		}		
 
 	}
 	
@@ -591,23 +522,7 @@ function heatMap(loggerPack, blobs){
 			$(this).find(".arrow-up, .arrow-down").toggle();
 			});
 	
-				   
-	/*
-	var heatmap = h337.create({
-        container: document.getElementById('heatmapContainer'),
-        maxOpacity: .6,
-        radius: 20,
-        blur: .10//,
-        // backgroundColor with alpha so you can see through it
-        //backgroundColor: 'rgba(0, 0, 58, 0.96)'
-    });
-	
-	for(let point of points){
-			heatmap.addData({ x: point.x, y: point.y, value: point.fixation });
-		
-	}*/
-	
-									
+				   									
 }
 
 
