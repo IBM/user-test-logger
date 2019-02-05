@@ -396,19 +396,23 @@ function heatMap(loggerPack, blobs){
 		for(let pageview in points[tab]){	
 		
 			console.log(pageview);
-	
-			var min = points[tab][pageview][0].fixation;
-			var max = points[tab][pageview][0].fixation;
+			
+			
+			//Verifying if there are fixations
+			if(points[tab][pageview][0] != undefined){
+				var min = points[tab][pageview][0].fixation;
+				var max = points[tab][pageview][0].fixation;
 				
-			for(let obj of points[tab][pageview]){
+				for(let obj of points[tab][pageview]){
 			
-				if(max < obj.fixation){
-					max = obj.fixation;
-				}
-				if(min > obj.fixation){
-					min = obj.fixation;
-				}
+					if(max < obj.fixation){
+						max = obj.fixation;
+					}
+					if(min > obj.fixation){
+						min = obj.fixation;
+					}
 			
+				}
 			}
 								  
 			var mousePath = d3.line()
