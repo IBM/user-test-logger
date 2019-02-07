@@ -52,7 +52,7 @@ td:hover {
   cursor: pointer;
 }
 
-.source, .target, .eoi {
+.source, .target, .eoi, .source1, .target1 {
   padding: 12px 24px 12px 24px;
   border-bottom: 0px solid #666;
   border-top: 0px solid #666;
@@ -71,8 +71,6 @@ td:hover {
 .innerRow:nth-child(even) {
     background-color: #f2f2f2;
 }
-
-
 
 .box .tooltiptxt {
   font-size: 0.85em;
