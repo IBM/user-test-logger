@@ -15,10 +15,10 @@
   width: 100%;
   border-collapse: collapse;
   text-align: left;
-  border-bottom: 1px solid #666;
-  border-top: 1px solid #666;
-  border-left : 1px solid #666;
-  border-right: 1px solid #666;
+  border-bottom: 2px solid #c1c1c1;
+  border-top: 2px solid #c1c1c1;
+  border-left : 2px solid #c1c1c1;
+  border-right: 2px solid #c1c1c1;
   table-layout: fixed;
 }
 
@@ -33,11 +33,11 @@ th {
   margin: -10px -10px -10px -10px;
 }
 
-td{
-  border-bottom: 1px solid #c1c1c1;
-  border-top: 1px solid #c1c1c1;
-  border-left : 1px solid #efefef;
-  border-right: 1px solid #efefef;
+td {
+  #border-bottom: 1px solid #c1c1c1;
+  #border-top: 1px solid #c1c1c1;
+  #border-left : 1px solid #efefef;
+  #border-right: 1px solid #efefef;
   text-align: center;
   padding: 0;
   margin: 0;
@@ -52,12 +52,34 @@ td:hover {
   cursor: pointer;
 }
 
-.source, .target, .eoi, .source1, .target1 {
-  padding: 12px 24px 12px 24px;
-  border-bottom: 0px solid #666;
-  border-top: 0px solid #666;
-  border-left : 0px solid #666;
-  border-right: 0px solid #666;
+.source, .target, .eoi, .source1 {
+	
+  position: relative;
+  
+  padding: 12px 72px 12px 24px;
+  
+  border-bottom: 1px solid #c1c1c1;
+  #border-top: 1px solid #666;
+  #border-left : 1px solid #666;
+  border-right: 1px solid #c1c1c1;
+  
+  
+  #background-color: #f2f2f2;
+}
+
+.target1 {
+	
+  position: relative;
+  
+  padding: 12px 72px 12px 24px;
+  
+  border-bottom: 1px solid #c1c1c1;
+  #border-top: 1px solid #666;
+  #border-left : 1px solid #666;
+  #border-right: 1px solid #666;
+  
+  
+  #background-color: #f2f2f2;
 }
 
 .innerTable {
@@ -69,7 +91,7 @@ td:hover {
 }
 
 .innerRow:nth-child(even) {
-    background-color: #f2f2f2;
+  #background-color: #f2f2f2;
 }
 
 .box .tooltiptxt {
@@ -89,4 +111,13 @@ td:hover {
 
 #margin {
   height: 100px;
+}
+
+.source1:after, .source:after, .eoi:after, .target:after{
+	content: "";  
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+	border-left: 10px solid #c1c1c1;
+	position: absolute;
+   right: -0px; top: 45%;
 }
