@@ -301,9 +301,13 @@ function sheets(nodes, i, cardinality){
 		sheetEoi.headers = 'header2 tab' + tab;
 		row.appendChild(sheetEoi);
 		
+		
+		
 		where = node.elementId;
 		if(where == '-') where = node.path;
 		description = document.createTextNode(node.eventName + '@' + where);
+		sheetEoi.appendChild(description);
+		
 		sheetEoi.appendChild(description);
 		
 		var sumMin = 0;

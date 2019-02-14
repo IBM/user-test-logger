@@ -469,17 +469,23 @@ function heatMap(loggerPack, blobs){
 			divV.style.display = 'none';
 			body.appendChild(divV);
 			
-			var x = document.createElement('iframe');			
+			var x = document.createElement('iframe');	
+			
+			console.log('test');
+
+			if(blobs != undefined){
 		
-			var bb = blobs[tab][pageview];
-		
-			x.src = window.URL.createObjectURL(bb);
-			x.width = wdimensions[tab][pageview];
-			x.height = hdimensions[tab][pageview];
-			x.style.position = 'relative';
-			x.style.zIndex = '-100';
-			x.className = 'iframe';
-			divV.appendChild(x);
+				var bb = blobs[tab][pageview];
+			
+				x.src = window.URL.createObjectURL(bb);
+				x.width = wdimensions[tab][pageview];
+				x.height = hdimensions[tab][pageview];
+				x.style.position = 'relative';
+				x.style.zIndex = '-100';
+				x.className = 'iframe';
+				divV.appendChild(x);
+			
+			}
 					 
 			var svg = d3.select(divV)
 					.append('svg')

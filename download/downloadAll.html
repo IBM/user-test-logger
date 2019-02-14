@@ -25,13 +25,14 @@
 }
 
 .table {
+  height: 100%;
   width: 100%;
   border-collapse: collapse;
   text-align: left;
-  border-bottom: 1px solid #666;
-  border-top: 1px solid #666;
-  border-left : 1px solid #666;
-  border-right: 1px solid #666;
+  border-bottom: 2px solid #c1c1c1;
+  border-top: 2px solid #c1c1c1;
+  border-left : 2px solid #c1c1c1;
+  border-right: 2px solid #c1c1c1;
   table-layout: fixed;
 }
 
@@ -46,14 +47,15 @@ th {
   margin: -10px -10px -10px -10px;
 }
 
-td{
-  border-bottom: 1px solid #c1c1c1;
-  border-top: 1px solid #c1c1c1;
-  border-left : 1px solid #efefef;
-  border-right: 1px solid #efefef;
+td {
+  #border-bottom: 1px solid #c1c1c1;
+  #border-top: 1px solid #c1c1c1;
+  #border-left : 1px solid #efefef;
+  #border-right: 1px solid #efefef;
   text-align: center;
   padding: 0;
   margin: 0;
+  width: 100%;
   
   max-width: 50px;
   white-space: nowrap;
@@ -65,12 +67,33 @@ td:hover {
   cursor: pointer;
 }
 
-.source, .target, .eoi {
+.source, .target, .eoi, .source1 {  
   padding: 12px 24px 12px 24px;
-  border-bottom: 0px solid #666;
-  border-top: 0px solid #666;
-  border-left : 0px solid #666;
-  border-right: 0px solid #666;
+  
+  border-bottom: 1px solid #c1c1c1;
+  #border-top: 1px solid #666;
+  #border-left : 1px solid #666;
+  border-right: 1px solid #c1c1c1;
+  
+  background: url("../icons/chevron.png") no-repeat;
+  background-size: 15% 100%;
+  background-position: right top;
+  
+  
+  #background-color: #f2f2f2;
+}
+
+.target1 {  
+  padding: 12px 24px 12px 24px;
+  
+  border-bottom: 1px solid #c1c1c1;
+  #border-top: 1px solid #666;
+  #border-left : 1px solid #666;
+  #border-right: 1px solid #666;
+
+  background: url("../icons/chevron.png") no-repeat;
+  background-size: 15% 100%;
+  background-position: right top;
 }
 
 .innerTable {
@@ -82,10 +105,8 @@ td:hover {
 }
 
 .innerRow:nth-child(even) {
-    background-color: #f2f2f2;
+  #background-color: #f2f2f2;
 }
-
-
 
 .box .tooltiptxt {
   font-size: 0.85em;
@@ -95,11 +116,13 @@ td:hover {
   color: black;
   text-align: left;
   border: 1px solid black;
-  padding: 5px 5px 5px 5px;
+  #padding: 5px 5px 5px 5px;
 
   /* Position the tooltip */
   position: absolute;
   z-index: 1;
+  
+  
 }
 
 #margin {

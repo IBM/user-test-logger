@@ -176,8 +176,7 @@ function mousePlot(loggerPack, blobs){
 		}
 	}
 	
-	for(let x of mouseTrack){
-		
+	for(let x of mouseTrack){		
 		if(x.length != 0){
 		
 			maps[x[0].tab][x[0].pageview]['tracks'].push(x);	
@@ -185,9 +184,13 @@ function mousePlot(loggerPack, blobs){
 		}
 	}
 	
+	
 	for(let x of clicks){
-		maps[x.tab][x.pageview]['clicks'].push(x);
+		if(x.length != 0){
+			maps[x.tab][x.pageview]['clicks'].push(x);
+		}
 	}
+	
 	
 	var body = document.getElementsByTagName("BODY")[0]; 
 	
@@ -222,7 +225,7 @@ function mousePlot(loggerPack, blobs){
 			
 			header1 = document.createElement("div");
 			header1.className = "pageview-heading";
-			
+						
 			//header1.style.borderTop = "1px solid #efefef";
 			header1.style.borderBottom = "1px solid #c1c1c1";
 			header1.style.fontSize = "1em";
@@ -265,18 +268,25 @@ function mousePlot(loggerPack, blobs){
 			divV.style.display = 'none';
 			body.appendChild(divV);
 			
-			var x = document.createElement('iframe');			
-		
-			var bb = blobs[tab][pageview];
-		
-			x.src = window.URL.createObjectURL(bb);
-			x.width = wdimensions[tab][pageview];
-			x.height = hdimensions[tab][pageview];
-			x.style.position = 'relative';
-			x.style.zIndex = '-100';
-			x.className = 'iframe';
-			divV.appendChild(x);
+			
+			var x = document.createElement('iframe');	
+			
+			console.log('test');
 
+
+			if(blobs != undefined){
+				
+				var bb = blobs[tab][pageview];
+			
+				x.src = window.URL.createObjectURL(bb);
+				x.width = wdimensions[tab][pageview];
+				x.height = hdimensions[tab][pageview];
+				x.style.position = 'relative';
+				x.style.zIndex = '-100';
+				x.className = 'iframe';
+				divV.appendChild(x);
+
+			}
 						 
 			var svg = d3.select(divV)
 						.append('svg')
@@ -296,6 +306,8 @@ function mousePlot(loggerPack, blobs){
 							  .attr('fill', 'none');
 			 			 
 			}	
+			
+			
 			
 			var g = svg.append('g'); 
 	
