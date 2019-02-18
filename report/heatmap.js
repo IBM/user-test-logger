@@ -471,11 +471,11 @@ function heatMap(loggerPack, blobs){
 			
 			var x = document.createElement('iframe');	
 			
-			console.log('test');
-
 			if(blobs != undefined){
 		
 				var bb = blobs[tab][pageview];
+				
+				bb = new Blob([bb], {type: 'text/html'});
 			
 				x.src = window.URL.createObjectURL(bb);
 				x.width = wdimensions[tab][pageview];
@@ -483,6 +483,7 @@ function heatMap(loggerPack, blobs){
 				x.style.position = 'relative';
 				x.style.zIndex = '-100';
 				x.className = 'iframe';
+				x.id = tab + pageview + 'iframe';
 				divV.appendChild(x);
 			
 			}

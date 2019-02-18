@@ -250,10 +250,12 @@ function screenshotPage() {
 	var script = document.createElement('script');
 	script.textContent = '(' + addOnPageLoad_.toString() + ')();';
 	screenshot.querySelector('body').appendChild(script);
-	var blob = new Blob([screenshot.outerHTML], {
-		type: 'text/html'
-	});
-	return blob;
+	//var blob = new Blob([screenshot.outerHTML], {
+	//	type: 'text/html'
+	//});
+	
+	//return blob;
+	return screenshot.outerHTML;
 }
 
 function addOnPageLoad_() {
@@ -271,8 +273,6 @@ function generate() {
 	x.id = "#myframe";
 	
 	var bb = screenshotPage();
-	
-	console.log(bb);
 	
 	x.src = window.URL.createObjectURL(bb);
 	x.width = document.body.clientWidth + 20;

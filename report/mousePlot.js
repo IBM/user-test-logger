@@ -277,6 +277,8 @@ function mousePlot(loggerPack, blobs){
 			if(blobs != undefined){
 				
 				var bb = blobs[tab][pageview];
+				
+				bb = new Blob([bb], {type: 'text/html'});
 			
 				x.src = window.URL.createObjectURL(bb);
 				x.width = wdimensions[tab][pageview];
@@ -284,6 +286,7 @@ function mousePlot(loggerPack, blobs){
 				x.style.position = 'relative';
 				x.style.zIndex = '-100';
 				x.className = 'iframe';
+				x.id = tab + pageview + 'iframe';
 				divV.appendChild(x);
 
 			}

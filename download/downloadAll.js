@@ -264,10 +264,9 @@ function init(backPage){
 	zip.file(dateName + "-graph.dot", blobG);
 	
 	//MOUSEPLOT
-	mousePlot(backPage.loggerPack);
+	mousePlot(backPage.loggerPack, backPage.blobs);
 	
-	var svg = d3.selectAll('svg');
-	svg.style('display', 'block');
+	$('.divVisualization').toggle();
 	
 	var htmlContent = [(new XMLSerializer()).serializeToString(document)];
 	var blob = new Blob(htmlContent, {type: "text/html"});
@@ -292,10 +291,9 @@ function init(backPage){
 	*/
 		
 	//HEATMAP
-	heatMap(backPage.loggerPack);
+	heatMap(backPage.loggerPack, backPage.blobs);
 	
-	svg = d3.selectAll('svg');
-	svg.style('display', 'block');
+	$('.divVisualization').toggle();
 	
 	htmlContent = [(new XMLSerializer()).serializeToString(document)];
 	blob = new Blob(htmlContent, {type: "text/html"});
