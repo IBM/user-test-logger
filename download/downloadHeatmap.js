@@ -106,7 +106,7 @@ function init(backPage){
 	
 	$('.divVisualization').show();
 	
-	var blobs = backPage.blobs;
+	/*var blobs = backPage.blobs;
 	
 	//Create the element	
 	var script = document.createElement("script");
@@ -121,11 +121,11 @@ function init(backPage){
 				var p = document.createElement('p');
 				p.appendChild(document.createTextNode(backPage.blobs[tab][pageview]));
 				p.style.display = "none";
-				p.id = tab + pageview + 'blob';
+				p.id = tab + pageview + 'blobpage';
 				document.body.appendChild(p);
 
 				// Add script content	
-				script.innerHTML += "x = document.getElementById('" + tab + pageview + "' + 'iframe'" + "); x1 = document.getElementById('" + tab + pageview + "' + 'blob'" + ").textContent; bb = new Blob([x1], {type: 'text/html'	});" + "x.src = window.URL.createObjectURL(bb);";
+				script.innerHTML += "x = document.getElementById('" + tab + pageview + "' + 'iframe'" + "); x1 = document.getElementById('" + tab + pageview + "' + 'blobpage'" + ").textContent; bb = new Blob([x1], {type: 'text/html'	});" + "x.src = window.URL.createObjectURL(bb);";
 			
 			}
 		}
@@ -133,16 +133,17 @@ function init(backPage){
 	}
 	
 	//Append
-	document.body.appendChild(script);
+	document.body.appendChild(script);*/
 	  
 	var htmlContent = [(new XMLSerializer()).serializeToString(document)];
-	var blob = new Blob(htmlContent, {type: "text/html"});
+	var blobhtml = new Blob(htmlContent, {type: "text/html"});
   
 	var date = new Date(); 
     var fileName = "" + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "T" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + "-heatmap.html";
   
-	saveAs(blob, fileName);	
-	//myPort.postMessage({done: 1});
+	saveAs(blobhtml, fileName);	
+	//console.log(blob);
+	myPort.postMessage({done: 1});
 	
 }
 
