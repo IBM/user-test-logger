@@ -106,7 +106,7 @@ function init(backPage){
 	
 	$('.divVisualization').show();
 	
-	/*var blobs = backPage.blobs;
+	var blobs = backPage.blobs;
 	
 	//Create the element	
 	var script = document.createElement("script");
@@ -133,7 +133,7 @@ function init(backPage){
 	}
 	
 	//Append
-	document.body.appendChild(script);*/
+	document.body.appendChild(script);
 	  
 	var htmlContent = [(new XMLSerializer()).serializeToString(document)];
 	var blobhtml = new Blob(htmlContent, {type: "text/html"});
@@ -142,8 +142,7 @@ function init(backPage){
     var fileName = "" + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "T" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + "-heatmap.html";
   
 	saveAs(blobhtml, fileName);	
-	//console.log(blob);
-	myPort.postMessage({done: 1});
+	//myPort.postMessage({done: 1});
 	
 }
 

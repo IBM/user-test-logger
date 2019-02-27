@@ -144,7 +144,7 @@ function init(backPage){
 	
 	//download as html
 	saveAs(blob, fileName);
-	myPort.postMessage({done: 1});
+	//myPort.postMessage({done: 1});
 	
 }
 
