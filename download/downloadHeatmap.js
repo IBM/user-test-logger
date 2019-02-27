@@ -104,13 +104,15 @@ function svgString2Image( svgString, width, height, format, callback ) {
 function init(backPage){
 	heatMap(backPage.loggerPack, backPage.blobs);	
 	
+	var zip = new JSZip();
+	
 	$('.divVisualization').show();
 	
 	var blobs = backPage.blobs;
 	
 	//Create the element	
 	var script = document.createElement("script");
-	script.innerHTML = "var x; var x1; var bb;"
+	script.innerHTML = "var x; var x1; var bb;";
 	
 	for(let tab in blobs){
 		
@@ -136,13 +138,19 @@ function init(backPage){
 	document.body.appendChild(script);
 	  
 	var htmlContent = [(new XMLSerializer()).serializeToString(document)];
-	var blobhtml = new Blob(htmlContent, {type: "text/html"});
+	var blob = new Blob(htmlContent, {type: "text/html"});
   
 	var date = new Date(); 
-    var fileName = "" + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "T" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + "-heatmap.html";
+    var fileName = "" + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "T" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + "-heatmap";
   
-	saveAs(blobhtml, fileName);	
-	//myPort.postMessage({done: 1});
+	//download as html - zip
+	zip.file(fileName + ".html", blob);
+	zip.generateAsync({type:"blob"})
+			.then(function (blob) {
+				saveAs(blob, fileName + ".zip");
+				//closing window
+				myPort.postMessage({done: 1});
+			});	
 	
 }
 

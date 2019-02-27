@@ -268,6 +268,35 @@ function init(backPage){
 	
 	$('.divVisualization').toggle();
 	
+	var blobs = backPage.blobs;
+	
+	//Create the element	
+	var script = document.createElement("script");
+	script.innerHTML = "var x; var x1; var bb;";
+	
+	for(let tab in blobs){
+		
+		for(let pageview in blobs[tab]){
+			
+			if(pageview.includes('loggerPopup.html') == false){
+  
+				var p = document.createElement('p');
+				p.appendChild(document.createTextNode(backPage.blobs[tab][pageview]));
+				p.style.display = "none";
+				p.id = tab + pageview + 'blob';
+				document.body.appendChild(p);
+
+				// Add script content	
+				script.innerHTML += "console.log('TEST');x = document.getElementById('" + tab + pageview + "' + 'iframe'" + "); x1 = document.getElementById('" + tab + pageview + "' + 'blob'" + ").textContent; bb = new Blob([x1], {type: 'text/html'	});" + "x.src = window.URL.createObjectURL(bb);";
+			
+			}
+		}
+	
+	}
+	
+	//Append
+	document.body.appendChild(script);
+	
 	var htmlContent = [(new XMLSerializer()).serializeToString(document)];
 	var blob = new Blob(htmlContent, {type: "text/html"});
 	
@@ -294,6 +323,35 @@ function init(backPage){
 	heatMap(backPage.loggerPack, backPage.blobs);
 	
 	$('.divVisualization').toggle();
+	
+	var blobs = backPage.blobs;
+	
+	//Create the element	
+	var script = document.createElement("script");
+	script.innerHTML = "var x; var x1; var bb;";
+	
+	for(let tab in blobs){
+		
+		for(let pageview in blobs[tab]){
+			
+			if(pageview.includes('loggerPopup.html') == false){
+  
+				var p = document.createElement('p');
+				p.appendChild(document.createTextNode(backPage.blobs[tab][pageview]));
+				p.style.display = "none";
+				p.id = tab + pageview + 'blob';
+				document.body.appendChild(p);
+
+				// Add script content	
+				script.innerHTML += "console.log('TEST');x = document.getElementById('" + tab + pageview + "' + 'iframe'" + "); x1 = document.getElementById('" + tab + pageview + "' + 'blob'" + ").textContent; bb = new Blob([x1], {type: 'text/html'	});" + "x.src = window.URL.createObjectURL(bb);";
+			
+			}
+		}
+	
+	}
+	
+	//Append
+	document.body.appendChild(script);
 	
 	htmlContent = [(new XMLSerializer()).serializeToString(document)];
 	blob = new Blob(htmlContent, {type: "text/html"});

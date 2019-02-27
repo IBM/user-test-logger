@@ -104,13 +104,15 @@ function svgString2Image( svgString, width, height, format, callback ) {
 function init(backPage){	
 	mousePlot(backPage.loggerPack, backPage.blobs);
 	
+	var zip = new JSZip();
+	
 	$('.divVisualization').show();
 	
 	var blobs = backPage.blobs;
 	
 	//Create the element	
 	var script = document.createElement("script");
-	script.innerHTML = "var x; var x1; var bb;"
+	script.innerHTML = "var x; var x1; var bb;";
 	
 	for(let tab in blobs){
 		
@@ -140,12 +142,16 @@ function init(backPage){
 	//download as html
 	
 	var date = new Date(); 
-    var fileName = "" + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "T" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + "-mousePlot.html";
+    var fileName = "" + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "T" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + "-mousePlot";
 	
-	//download as html
-	saveAs(blob, fileName);
-	//myPort.postMessage({done: 1});
-	
+	//download as html - zip
+	zip.file(fileName + ".html", blob);
+	zip.generateAsync({type:"blob"})
+			.then(function (blob) {
+				saveAs(blob, fileName + ".zip");
+				//closing window
+				myPort.postMessage({done: 1});
+			});
 }
 
 var background = browser.runtime.getBackgroundPage();
