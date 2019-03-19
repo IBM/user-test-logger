@@ -75,4 +75,4 @@ Checkout this video showing an overview of reporting capabilities:
 
 ## Citing the User Test Logger
 
-Please cite as: Santana, V. F., and Silva, F. E. F. 2018. User Test Logger: A General-Purpose Web Browser Logging and Reporting Tool for Local User Studies. IBM Research Technical Report.
+Please cite as: Santana, V. F., and Silva, F. E. F. 2019. User Test Logger: An Open Source Browser Plugin for Logging and Reporting Local User Studies. In Proceedings of XXI International Conference on Human-Computer Interaction (HCII 2019). Springer.
